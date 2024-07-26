@@ -1,6 +1,6 @@
 <template>
   <div class="ethereum-wallet">
-    <h1>Ethereum wallet generation</h1>
+    <h1>Ethereum wallet</h1>
   </div>
 </template>
 
