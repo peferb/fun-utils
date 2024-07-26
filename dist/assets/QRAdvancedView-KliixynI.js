@@ -1,1 +1,0 @@
-import{_ as e,c,o,a as s}from"./index-BPRtmO32.js";const t={},a={class:"qr-advanced"},n=s("h1",null,"Create QR code",-1),_=[n];function r(d,i){return o(),c("div",a,_)}const f=e(t,[["render",r]]);export{f as default};

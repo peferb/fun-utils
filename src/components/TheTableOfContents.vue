@@ -1,28 +1,30 @@
 <script setup>
-import WelcomeItem from './ContentItem.vue'
+import ContentItem from './ContentItem.vue'
 import Title from './Title.vue'
 import QRCodeIcon1 from './icons/IconQRCode1.vue'
 import QRCodeIcon2 from './icons/IconQRCode2.vue'
+import EnhancedEncryptionIcon from '@/components/icons/IconEnhancedEncryption.vue'
+import WalletIcon from '@/components/icons/IconWallet.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
 <template>
   <Title>Table of Contents</Title>
 
-  <WelcomeItem>
+  <ContentItem>
     <template #icon>
-      <QRCodeIcon2 />
+      <QRCodeIcon2/>
     </template>
     <template #heading><RouterLink to="/qr-simple">QR</RouterLink> - Basic QR code</template>
     <ul>
       <li>Resize</li>
       <li>Select foreground/background color</li>
     </ul>
-  </WelcomeItem>
+  </ContentItem>
 
-  <WelcomeItem>
+  <ContentItem>
     <template #icon>
-      <QRCodeIcon1 />
+      <QRCodeIcon1/>
     </template>
     <template #heading><RouterLink to="/qr-simple">QR2</RouterLink> - QR code</template>
     <ul>
@@ -35,7 +37,37 @@ import { RouterLink } from 'vue-router'
       <li>Binary Content</li>
       <li>Error recovery level</li>
     </ul>
-  </WelcomeItem>
+  </ContentItem>
+
+  <ContentItem>
+    <template #icon>
+      <EnhancedEncryptionIcon/>
+    </template>
+    <template #heading><RouterLink to="/shamirs-secret">SS</RouterLink> - Shamirs Secret</template>
+    <p style="padding-bottom: 12px; font-style: italic">
+      <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
+    </p>
+    <ul>
+      <li>split secret into n parts</li>
+      <li>set parts required for restoration</li>
+      <li>restore secret</li>
+    </ul>
+  </ContentItem>
+
+  <ContentItem>
+    <template #icon>
+      <WalletIcon/>
+    </template>
+    <template #heading><RouterLink to="/ethereum-wallet">ETH</RouterLink> - generate Ethereum wallets</template>
+    <ul>
+      <li>generate n wallets</li>
+      <li>output includes private key, address and mnemonic</li>
+      <li>match in end</li>
+      <li>match in start</li>
+      <li>chars included in address</li>
+      <li>case-sensitive or case-insensitive</li>
+    </ul>
+  </ContentItem>
 </template>
 
 <style>
