@@ -1,0 +1,1 @@
+import{_ as e,c as t,o,a as s}from"./index-g5cDwXUV.js";const c={},a={class:"ethereum-wallet"},n=s("h1",null,"Ethereum wallet generation",-1),r=[n];function _(l,i){return o(),t("div",a,r)}const h=e(c,[["render",_]]);export{h as default};
