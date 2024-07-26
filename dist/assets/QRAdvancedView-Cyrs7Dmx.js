@@ -1,1 +1,0 @@
-import{_ as e,c as s,o as c,a}from"./index-g5cDwXUV.js";const o={},t={class:"qr-advanced"},n=a("h1",null,"This is an about page",-1),_=[n];function r(d,i){return c(),s("div",t,_)}const f=e(o,[["render",r]]);export{f as default};
