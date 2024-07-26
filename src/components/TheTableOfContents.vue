@@ -1,6 +1,5 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import PageTitle from './PageTitle.vue'
+import WelcomeItem from './ContentItem.vue'
 import Title from './Title.vue'
 import QRCodeIcon1 from './icons/IconQRCode1.vue'
 import QRCodeIcon2 from './icons/IconQRCode2.vue'
@@ -8,15 +7,6 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <PageTitle>About peferb/fun-utils</PageTitle>
-  <p>
-    This is a Vue/"Github Pages" implementation of
-    <a href="https://github.com/peferb/utils">github.com/peferb/utils</a>. If you are interested in
-    the code I would suggest taking a look at
-    <a href="https://github.com/peferb/utils">github.com/peferb/utils</a> instead, which is
-    implemented only using vanilla JS and HTML.
-  </p>
-
   <Title>Table of Contents</Title>
 
   <WelcomeItem>
