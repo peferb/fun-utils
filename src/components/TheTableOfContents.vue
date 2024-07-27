@@ -19,6 +19,12 @@ import { RouterLink } from 'vue-router'
     <ul>
       <li>Resize</li>
       <li>Select foreground/background color</li>
+      <li>Manually set mask</li>
+      <li>Error correction level</li>
+      <li>Filetype</li>
+      <li>Quality</li>
+      <li>See "raw" data</li>
+      <li>Copy to clipboard</li>
     </ul>
   </ContentItem>
 
@@ -27,7 +33,8 @@ import { RouterLink } from 'vue-router'
       <QRCodeIcon1/>
     </template>
     <template #heading><RouterLink to="/qr-simple">QR2</RouterLink> - QR code</template>
-    <ul>
+    <span style="font-weight: bolder">// TODO</span>
+    <ul style="text-decoration: line-through;">
       <li>Resize</li>
       <li>Select foreground/background color</li>
       <li>Select positioning colors</li>
@@ -36,6 +43,7 @@ import { RouterLink } from 'vue-router'
       <li>Timing X/Y color</li>
       <li>Binary Content</li>
       <li>Error recovery level</li>
+      <li>Add image/logo</li>
     </ul>
   </ContentItem>
 
@@ -47,7 +55,8 @@ import { RouterLink } from 'vue-router'
     <p style="padding-bottom: 12px; font-style: italic">
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
     </p>
-    <ul>
+    <span style="font-weight: bolder">// TODO</span>
+    <ul style="text-decoration: line-through;">
       <li>split secret into n parts</li>
       <li>set parts required for restoration</li>
       <li>restore secret</li>
@@ -59,7 +68,8 @@ import { RouterLink } from 'vue-router'
       <WalletIcon/>
     </template>
     <template #heading><RouterLink to="/ethereum-wallet">ETH</RouterLink> - generate Ethereum wallets</template>
-    <ul>
+    <span style="font-weight: bolder">// TODO</span>
+    <ul style="text-decoration: line-through;">
       <li>generate n wallets</li>
       <li>output includes private key, address and mnemonic</li>
       <li>match in end</li>
