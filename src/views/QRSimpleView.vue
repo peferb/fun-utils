@@ -10,6 +10,11 @@
       Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
       <a href="https://www.npmjs.com/package/vue-qrcode">NPM</a>.
     </p>
+    <p>
+      How do I get a good result? Read
+      <a href="https://www.uniqode.com/blog/qr-code/how-much-data-can-qr-code-hold">uniqodes article</a> about how QR
+      codes work.
+    </p>
     <div class="form">
       <label for="input-value">Value</label>
       <input id="input-value" v-model="option.value" type="text">
