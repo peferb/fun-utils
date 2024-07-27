@@ -16,7 +16,11 @@ a,
 }
 
 p {
-  padding-bottom: 24px;
+  padding-bottom: 12px;
+}
+
+h2 {
+  margin-top: 24px;
 }
 
 @media (hover: hover) {
