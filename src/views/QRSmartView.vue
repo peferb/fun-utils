@@ -16,7 +16,7 @@
 
     <h2>VCard settings</h2>
     <div class="content-tab">
-      <VCardForm @input="handleVCardInput" />
+      <VCardForm @input="setContent" />
     </div>
 
     <h2>Visual settings</h2>
@@ -96,7 +96,7 @@ const dataUrl = ref({
 
 const showQrContent = ref(false)
 
-const handleVCardInput = val => option.value.value = val
+const setContent = val => option.value.value = val
 
 const copyToClipboard = text => navigator.clipboard.writeText(text)
 </script>
