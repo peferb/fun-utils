@@ -1,6 +1,16 @@
+<script setup lang="ts">
+  import PageTitle from '@/components/PageTitle.vue'
+  import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
+</script>
+
 <template>
   <div class="qr-simple">
-    <h1>Simple QR generator</h1>
+    <PageTitle>
+      <template #icon>
+        <IconQRCode2/>
+      </template>
+      Simple QR generator
+    </PageTitle>
   </div>
 </template>
 

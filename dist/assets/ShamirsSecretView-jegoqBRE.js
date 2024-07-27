@@ -1,1 +1,0 @@
-import{_ as e,c as s,o as c,a as t}from"./index-CzqZticC.js";const o={},r={class:"shamirs-secret"},a=t("h1",null,"Shamirs Secret",-1),_=[a];function n(i,d){return c(),s("div",r,_)}const l=e(o,[["render",n]]);export{l as default};
