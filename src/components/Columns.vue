@@ -1,0 +1,43 @@
+<template>
+  <div class="columns-container">
+    <slot name="default"/>
+  </div>
+</template>
+
+<style>
+.columns-container {
+  width: 100%;;
+  display: flex;
+  flex-wrap: wrap;
+}
+.columns-container >* {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-right: 8px;
+}
+.columns-container >*:nth-child(odd) {
+  padding-right: 8px;
+}
+.columns-container >*:nth-child(even) {
+  padding-left: 8px;
+}
+
+@media (min-width: 1024px) {
+  .columns-container >* {
+    width: 33%;
+  }
+  .columns-container >*:nth-child(3n+1) {
+    padding-left: 0;
+    padding-right: 8px;
+  }
+  .columns-container >*:nth-child(3n+2) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .columns-container >*:nth-child(3n) {
+    padding-left: 8px;
+    padding-right: 0;
+  }
+}
+</style>
