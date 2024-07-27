@@ -1,1 +1,0 @@
-import{d as t,o as s,c,a as e,w as a,p as n,b as o,P as r}from"./index-DAmmulVZ.js";const i={class:"shamirs-secret"},p=t({__name:"ShamirsSecretView",setup(_){return(d,l)=>(s(),c("div",i,[e(r,null,{icon:a(()=>[e(n)]),default:a(()=>[o(" Shamirs Secret ")]),_:1})]))}});export{p as default};

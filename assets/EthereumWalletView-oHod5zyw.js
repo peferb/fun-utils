@@ -1,0 +1,1 @@
+import{l as a,o,c as s,a as e,w as t,I as l,h as c,P as n}from"./index-CDmsPqoi.js";const r={class:"ethereum-wallet"},d=a({__name:"EthereumWalletView",setup(_){return(i,m)=>(o(),s("div",r,[e(n,null,{icon:t(()=>[e(l)]),default:t(()=>[c(" Ethereum wallet ")]),_:1})]))}});export{d as default};
