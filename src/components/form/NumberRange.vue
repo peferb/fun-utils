@@ -9,13 +9,13 @@
         :min="min"
         :max="max"
         :step="step || 'any'"
-        @input="emit('update:modelValue', type === 'int' ? Number.parseInt($event.target.value) :Number.parseFloat($event.target.value).toFixed(2))"
+        @input="emit('update:modelValue', parseNumber($event.target.value))"
         style="width: 50%">
       <input
         type="number"
         :value="props.modelValue"
         :step="step || 'any'"
-        @input="emit('update:modelValue', type === 'int' ? Number.parseInt($event.target.value) :Number.parseFloat($event.target.value).toFixed(2))"
+        @input="emit('update:modelValue', parseNumber($event.target.value))"
         style="width: 50%">
     </div>
   </div>
@@ -51,6 +51,8 @@ const props = defineProps({
   }
 })
 const emit = defineEmits(['update:modelValue'])
+
+const parseNumber = val => props.type === 'int' ? Number.parseInt(val) :Number.parseFloat(Number.parseFloat(val).toFixed(2))
 </script>
 
 <style>
