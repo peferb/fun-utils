@@ -1,8 +1,21 @@
 <template>
-  <div class="columns-container">
+  <div
+    class="columns-container"
+    :class="maxColumns === 'three' ? 'columns-container-3' : null">
     <slot name="default"/>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  maxColumns: {
+    validator(value) {
+      return ['two', 'three'].includes(value)
+    },
+    default: 'three'
+  }
+})
+</script>
 
 <style>
 .columns-container {
@@ -14,7 +27,7 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding-right: 8px;
+  padding-top: 8px;
 }
 .columns-container >*:nth-child(odd) {
   padding-right: 8px;
@@ -24,18 +37,18 @@
 }
 
 @media (min-width: 1024px) {
-  .columns-container >* {
+  .columns-container-3 >* {
     width: 33%;
   }
-  .columns-container >*:nth-child(3n+1) {
+  .columns-container-3 >*:nth-child(3n+1) {
     padding-left: 0;
     padding-right: 8px;
   }
-  .columns-container >*:nth-child(3n+2) {
+  .columns-container-3 >*:nth-child(3n+2) {
     padding-left: 8px;
     padding-right: 8px;
   }
-  .columns-container >*:nth-child(3n) {
+  .columns-container-3 >*:nth-child(3n) {
     padding-left: 8px;
     padding-right: 0;
   }

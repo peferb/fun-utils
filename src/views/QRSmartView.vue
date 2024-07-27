@@ -21,10 +21,12 @@
 
     <h2>Visual settings</h2>
     <div class="options-form">
-      <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
-      <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
-      <NumberRange id="input-width" label="Width" v-model="option.width" />
-      <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType"/>
+      <Columns max-columns="two">
+        <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
+        <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
+        <NumberRange id="input-width" label="Width" v-model="option.width" />
+        <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType"/>
+      </Columns>
     </div>
 
     <VueQrcode
@@ -71,6 +73,7 @@ import VCardForm from '@/components/form/VCardForm.vue'
 import ColorSelector from '@/components/form/ColorSelector.vue'
 import NumberRange from '@/components/form/NumberRange.vue'
 import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
+import Columns from '@/components/Columns.vue'
 
 const option = ref({
   value: '',
