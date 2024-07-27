@@ -120,6 +120,4 @@ const copyToClipboard = text => navigator.clipboard.writeText(text)
 .data-url-output {
   line-break: anywhere;
 }
-@media (min-width: 1024px) {
-}
 </style>
