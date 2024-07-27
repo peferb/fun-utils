@@ -1,16 +1,16 @@
 <template>
   <Columns>
-    <TextInput id="fn" label="Firstname" v-model="data.firstName" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="ln" label="Lastname" v-model="data.lastName" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="org" label="Organisation" v-model="data.organisation" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="title" label="Title" v-model="data.title" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="mobile" type="tel" label="Phone" v-model="data.mobile" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="phone-work" type="tel" label="Phone work" v-model="data.phoneWork" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="email" label="Email" type="email" v-model="data.email" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="url" type="url" label="Url" v-model="data.url" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="street" label="Street" v-model="data.street" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="city" label="City" v-model="data.city" @input="handleInput" class="v-card-form-item"/>
-    <TextInput id="country" label="Country" v-model="data.country" @input="handleInput" class="v-card-form-item"/>
+    <TextInput id="fn" label="Firstname" v-model="data.firstName" @input="handleInput"/>
+    <TextInput id="ln" label="Lastname" v-model="data.lastName" @input="handleInput"/>
+    <TextInput id="org" label="Organisation" v-model="data.organisation" @input="handleInput"/>
+    <TextInput id="title" label="Title" v-model="data.title" @input="handleInput"/>
+    <TextInput id="mobile" type="tel" label="Phone" v-model="data.mobile" @input="handleInput"/>
+    <TextInput id="phone-work" type="tel" label="Phone work" v-model="data.phoneWork" @input="handleInput"/>
+    <TextInput id="email" label="Email" type="email" v-model="data.email" @input="handleInput"/>
+    <TextInput id="url" type="url" label="Url" v-model="data.url" @input="handleInput"/>
+    <TextInput id="street" label="Street" v-model="data.street" @input="handleInput"/>
+    <TextInput id="city" label="City" v-model="data.city" @input="handleInput"/>
+    <TextInput id="country" label="Country" v-model="data.country" @input="handleInput"/>
   </Columns>
 </template>
 
