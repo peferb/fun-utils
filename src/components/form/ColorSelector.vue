@@ -18,7 +18,6 @@
 <script setup>
 const model = defineModel()
 const props = defineProps({
-  modelValue: {},
   label: {
     type: String,
     default: 'Label'
