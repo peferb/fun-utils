@@ -89,9 +89,9 @@ const correctionLevel = ref([
 ])
 
 const option = ref({
-  value: 'peferb/fun-utils',
+  value: 'https://peferb.github.io/fun-utils',
   maskPattern: 1,
-  version: 3,
+  version: 4,
   width: 250,
   color: {
     light: '#FFFFFF',

@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
 
   <ContentItem>
     <template #icon>
-      <QRCodeIcon2/>
+      <QRCodeIcon1/>
     </template>
     <template #heading><RouterLink to="/qr-simple">QR</RouterLink> - Basic QR code</template>
     <ul>
@@ -30,10 +30,25 @@ import { RouterLink } from 'vue-router'
 
   <ContentItem>
     <template #icon>
+      <QRCodeIcon2/>
+    </template>
+    <template #heading><RouterLink to="/qr-advanced">QR2</RouterLink> - Smart QR code</template>
+    <ul>
+      <li>VCard (digital contact)</li>
+      <li>Resize</li>
+      <li>Select foreground/background color</li>
+      <li>Filetype</li>
+    </ul>
+    <br>
+    <pre>// TODO WIFI QR code</pre>
+  </ContentItem>
+
+  <ContentItem>
+    <template #icon>
       <QRCodeIcon1/>
     </template>
-    <template #heading><RouterLink to="/qr-simple">QR2</RouterLink> - QR code</template>
-    <span style="font-weight: bolder">// TODO</span>
+    <template #heading><RouterLink to="/qr-advanced">QR3</RouterLink> - QR with logo</template>
+    <pre>// TODO</pre>
     <ul style="text-decoration: line-through;">
       <li>Resize</li>
       <li>Select foreground/background color</li>
@@ -55,7 +70,7 @@ import { RouterLink } from 'vue-router'
     <p style="padding-bottom: 12px; font-style: italic">
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
     </p>
-    <span style="font-weight: bolder">// TODO</span>
+    <pre>// TODO</pre>
     <ul style="text-decoration: line-through;">
       <li>split secret into n parts</li>
       <li>set parts required for restoration</li>

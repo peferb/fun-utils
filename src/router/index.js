@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/qr-advanced',
-      name: 'qr-advanced',
-      component: () => import('../views/QRAdvancedView.vue')
-    },
-    {
       path: '/qr-simple',
       name: 'qr-simple',
       component: () => import('../views/QRSimpleView.vue')
+    },
+    {
+      path: '/qr-smart',
+      name: 'qr-smart',
+      component: () => import('../views/QRSmartView.vue')
     },
     {
       path: '/shamirs-secret',
