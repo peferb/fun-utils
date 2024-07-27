@@ -2,7 +2,7 @@
   <div class="qr-simple">
     <PageTitle>
       <template #icon>
-        <IconQRCode2 />
+        <IconQRCode1 />
       </template>
       Simple QR generator
     </PageTitle>
@@ -75,11 +75,11 @@
 <script setup>
 import { ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
-import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
 import VueQrcode from 'vue-qrcode'
 import NumberRange from '@/components/form/NumberRange.vue'
 import ColorSelector from '@/components/form/ColorSelector.vue'
 import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
+import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 
 const correctionLevel = ref([
   { label: 'Low - 7%', value: 'low' },
