@@ -1,0 +1,1 @@
+import{d as t,c as o,a as e,w as a,P as c,o as n,I as s,b as r}from"./index-DxHrrUuN.js";const d={class:"qr-advanced"},m=t({__name:"QRAdvancedView",setup(_){return(i,l)=>(n(),o("div",d,[e(c,null,{icon:a(()=>[e(s)]),default:a(()=>[r(" QR generator ")]),_:1})]))}});export{m as default};

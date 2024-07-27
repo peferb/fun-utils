@@ -1,0 +1,1 @@
+import{d as t,c as s,a as e,w as a,P as c,o as n,f as o,b as r}from"./index-DxHrrUuN.js";const i={class:"shamirs-secret"},p=t({__name:"ShamirsSecretView",setup(_){return(d,l)=>(n(),s("div",i,[e(c,null,{icon:a(()=>[e(o)]),default:a(()=>[r(" Shamirs Secret ")]),_:1})]))}});export{p as default};

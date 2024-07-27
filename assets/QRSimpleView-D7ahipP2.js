@@ -1,1 +1,0 @@
-import{_ as e,c as s,o,a as t}from"./index-CzqZticC.js";const c={},n={class:"qr-simple"},r=t("h1",null,"Simple QR generator",-1),_=[r];function a(i,l){return o(),s("div",n,_)}const m=e(c,[["render",a]]);export{m as default};
