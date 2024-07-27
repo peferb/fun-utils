@@ -37,16 +37,7 @@
         </option>
       </select>
 
-      <label for="input-file-type">Filetype</label>
-      <select
-        id="input-file-type"
-        v-model="option.fileType">
-        <option
-          v-for="type in fileType"
-          :value="type">
-          {{ type }}
-        </option>
-      </select>
+      <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType"/>
 
       <NumberRange id="input-quality" label="Quality" type="float" v-model="option.quality" :min="0" :max="1" />
     </div>
@@ -88,6 +79,7 @@ import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
 import VueQrcode from 'vue-qrcode'
 import NumberRange from '@/components/form/NumberRange.vue'
 import ColorSelector from '@/components/form/ColorSelector.vue'
+import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
 
 const correctionLevel = ref([
   { label: 'Low - 7%', value: 'low' },
@@ -95,8 +87,6 @@ const correctionLevel = ref([
   { label: 'Quartile - 25%', value: 'quartile' },
   { label: 'High - 30%', value: 'high' },
 ])
-
-const fileType = ref(['image/png', 'image/jpeg', 'image/webp'])
 
 const option = ref({
   value: 'peferb/fun-utils',
