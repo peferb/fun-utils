@@ -1,27 +1,19 @@
 <template>
   <div class="file-type-selector-container">
-    <label :for="id">{{ label }}</label>
-    <select
+    <BaseSelector
       :id="id"
-      v-model="model">
-      <option
-        v-for="type in fileType"
-        :value="type">
-        {{ type }}
-      </option>
-    </select>
+      label="Filetype"
+      v-model="model"
+      :items="fileType"/>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import BaseSelector from '@/components/form/BaseSelector.vue'
 
 const model = defineModel()
 const props = defineProps({
-  label: {
-    type: String,
-    default: 'Label'
-  },
   id: {
     type: String,
     required: true
