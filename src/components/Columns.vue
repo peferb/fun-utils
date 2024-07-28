@@ -27,30 +27,16 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding-top: 8px;
+  padding-top: 12px;
 }
-.columns-container >*:nth-child(odd) {
-  padding-right: 8px;
-}
-.columns-container >*:nth-child(even) {
+.columns-container >* {
   padding-left: 8px;
+  padding-right: 8px;
 }
 
 @media (min-width: 1024px) {
   .columns-container-3 >* {
     width: 33%;
-  }
-  .columns-container-3 >*:nth-child(3n+1) {
-    padding-left: 0;
-    padding-right: 8px;
-  }
-  .columns-container-3 >*:nth-child(3n+2) {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  .columns-container-3 >*:nth-child(3n) {
-    padding-left: 8px;
-    padding-right: 0;
   }
 }
 </style>

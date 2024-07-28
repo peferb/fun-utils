@@ -20,15 +20,16 @@
         <label for="input-value">Content</label>
         <textarea id="input-value" v-model="option.value" />
       </div>
-
-      <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
-      <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
-      <NumberRange id="input-width" label="Width" v-model="option.width" />
-      <NumberRange id="input-mask" label="Mask" v-model="option.maskPattern" :min="1" :max="7" />
-      <NumberRange id="input-version" label="Version" v-model="option.version" :min="1" :max="40" />
-      <NumberRange id="input-quality" label="Quality" type="float" v-model="option.quality" :min="0" :max="1" />
-      <ErrorCorrectionLevelSelector id="input-correction-level" v-model="option.errorCorrectionLevel" />
-      <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType" />
+      <Columns max-columns="two">
+        <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
+        <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
+        <NumberRange id="input-width" label="Width" v-model="option.width" />
+        <NumberRange id="input-mask" label="Mask" v-model="option.maskPattern" :min="1" :max="7" />
+        <NumberRange id="input-version" label="Version" v-model="option.version" :min="1" :max="40" />
+        <NumberRange id="input-quality" label="Quality" type="float" v-model="option.quality" :min="0" :max="1" />
+        <ErrorCorrectionLevelSelector id="input-correction-level" v-model="option.errorCorrectionLevel" />
+        <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType" />
+      </Columns>
     </div>
 
     <VueQrcode
@@ -70,6 +71,7 @@ import ColorSelector from '@/components/form/ColorSelector.vue'
 import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import ErrorCorrectionLevelSelector from '@/components/form/ErrorCorrectionLevelSelector.vue'
+import Columns from '@/components/Columns.vue'
 
 const option = ref({
   value: 'https://peferb.github.io/fun-utils',

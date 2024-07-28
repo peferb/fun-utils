@@ -1,5 +1,5 @@
 <template>
-  <div class="text-input">
+  <div class="text-input half-box">
     <label :for="id">{{ label }}</label>
     <input
       :id="id"

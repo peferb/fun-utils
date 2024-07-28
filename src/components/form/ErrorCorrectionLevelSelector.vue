@@ -1,5 +1,4 @@
 <template>
-  <div class="file-type-selector-container">
     <BaseSelector
       :id="id"
       label="Correction level"
@@ -7,7 +6,6 @@
       :items="correctionLevelArray"
       :value-extractor="level => level.short"
       :description-extractor="level => level.label"/>
-  </div>
 </template>
 
 <script setup>
@@ -24,10 +22,3 @@ const props = defineProps({
 const correctionLevel = inject('errorCorrectionLevel')
 const correctionLevelArray = ref(Object.values(correctionLevel))
 </script>
-
-<style>
-.file-type-selector-container {
-  display: flex;
-  flex-direction: column;
-}
-</style>

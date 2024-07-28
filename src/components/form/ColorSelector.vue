@@ -1,5 +1,5 @@
 <template>
-  <div class="color-selector-container">
+  <div class="color-selector-container half-box">
     <label :for="id">{{ label }}</label>
     <div class="row">
       <input

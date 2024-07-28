@@ -1,5 +1,5 @@
 <template>
-  <div class="selector-container">
+  <div class="base-container half-box">
     <label :for="id">{{ label }}</label>
     <select
       :id="id"
@@ -40,7 +40,7 @@ const props = defineProps({
 </script>
 
 <style>
-.selector-container {
+.base-container {
   display: flex;
   flex-direction: column;
 }

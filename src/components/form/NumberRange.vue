@@ -1,5 +1,5 @@
 <template>
-  <div class="number-range-container">
+  <div class="number-range-container half-box">
     <label :for="id">{{ label }}</label>
     <div class="row">
       <input

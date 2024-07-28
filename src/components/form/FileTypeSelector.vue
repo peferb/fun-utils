@@ -1,11 +1,9 @@
 <template>
-  <div class="file-type-selector-container">
-    <BaseSelector
-      :id="id"
-      label="Filetype"
-      v-model="model"
-      :items="filetype"/>
-  </div>
+  <BaseSelector
+    :id="id"
+    label="Filetype"
+    v-model="model"
+    :items="filetype"/>
 </template>
 
 <script setup>
@@ -21,10 +19,3 @@ const props = defineProps({
 })
 const filetype = inject('filetype')
 </script>
-
-<style>
-.file-type-selector-container {
-  display: flex;
-  flex-direction: column;
-}
-</style>
