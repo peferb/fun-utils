@@ -1,0 +1,1 @@
+import{n as t,o as s,a as c,d as e,e as a,A as n,h as o,P as r}from"./index-BwF5dbgk.js";const i={class:"page shamirs-secret"},p=t({__name:"ShamirsSecretView",setup(_){return(d,l)=>(s(),c("div",i,[e(r,null,{icon:a(()=>[e(n)]),default:a(()=>[o(" Shamirs Secret ")]),_:1})]))}});export{p as default};
