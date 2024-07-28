@@ -16,10 +16,7 @@
       codes work.
     </p>
     <div class="form">
-      <div class="input-container">
-        <label for="input-value">Content</label>
-        <textarea id="input-value" v-model="option.value" />
-      </div>
+      <TextField id="input-content" label="Content" v-model="option.value"/>
       <Columns max-columns="two">
         <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
         <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
@@ -72,6 +69,7 @@ import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import ErrorCorrectionLevelSelector from '@/components/form/ErrorCorrectionLevelSelector.vue'
 import Columns from '@/components/Columns.vue'
+import TextField from '@/components/form/TextField.vue'
 
 const option = ref({
   value: 'https://peferb.github.io/fun-utils',
@@ -96,11 +94,6 @@ const copyToClipboard = text => navigator.clipboard.writeText(text)
 </script>
 
 <style>
-.input-container {
-  display: flex;
-  flex-direction: column;
-}
-
 .data-url-output {
   line-break: anywhere;
 }
