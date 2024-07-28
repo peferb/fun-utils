@@ -28,26 +28,30 @@ h2 {
 }
 
 .half-box {
+  --top-space: 16px;
   position: relative;
   min-height: 60px;
-}
-.half-box:before {
-  content: "";
-  position: absolute;
-  right: 8px;
-  width: 2px;
-  top: 12px;
-  height: 80%;
-  background-color: #333;
-}
-.half-box:after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  top: 12px;
-  height: 2px;
-  background-color: #333;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: var(--top-space);
+  &:before {
+    content: "";
+    position: absolute;
+    right: 7px;
+    width: 2px;
+    top: var(--top-space);
+    height: 50%;
+    background-color: #333;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: var(--top-space);
+    height: 2px;
+    background-color: #333;
+  }
 }
 
 @media (hover: hover) {

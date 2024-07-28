@@ -27,11 +27,6 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding-top: 12px;
-}
-.columns-container >* {
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 @media (min-width: 1024px) {
