@@ -4,7 +4,7 @@ import PageTitle from '@/components/PageTitle.vue'
 </script>
 
 <template>
-  <main>
+  <main class="page">
     <PageTitle>About peferb/fun-utils</PageTitle>
     <p>
       This is a Vue/"Github Pages" implementation of

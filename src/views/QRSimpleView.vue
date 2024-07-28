@@ -1,5 +1,5 @@
 <template>
-  <div class="qr-simple">
+  <div class="page qr-simple">
     <PageTitle>
       <template #icon>
         <IconQRCode1 />
@@ -16,45 +16,20 @@
       codes work.
     </p>
     <div class="form">
-      <label for="input-value">Value</label>
-      <input id="input-value" v-model="option.value" type="text">
-
-      <NumberRange id="input-width" label="Width" v-model="option.width" />
-      <NumberRange id="input-mask" label="Mask" v-model="option.maskPattern" :min="1" :max="7" />
-      <NumberRange id="input-version" label="Version" v-model="option.version" :min="1" :max="40" />
+      <div class="input-container">
+        <label for="input-value">Content</label>
+        <textarea id="input-value" v-model="option.value" />
+      </div>
 
       <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
       <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
-
-      <label for="input-value">Correction level</label>
-      <select
-        id="input-correction-level"
-        v-model="option.errorCorrectionLevel">
-        <option
-          v-for="level in correctionLevel"
-          :value="level.value">
-          {{ level.label }}
-        </option>
-      </select>
-
-      <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType"/>
-
+      <NumberRange id="input-width" label="Width" v-model="option.width" />
+      <NumberRange id="input-mask" label="Mask" v-model="option.maskPattern" :min="1" :max="7" />
+      <NumberRange id="input-version" label="Version" v-model="option.version" :min="1" :max="40" />
       <NumberRange id="input-quality" label="Quality" type="float" v-model="option.quality" :min="0" :max="1" />
+      <ErrorCorrectionLevelSelector id="input-correction-level" v-model="option.errorCorrectionLevel" />
+      <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType" />
     </div>
-
-    <hr style="margin: 12px 0">
-    <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
-      Show data
-    </button>
-    <button @click="copyToClipboard(dataUrl.data)" style="margin-right: 8px">
-      Copy data to clipboard
-    </button>
-    <div
-      v-if="dataUrl.show"
-      class="data-url-output">
-      {{ dataUrl.data }}
-    </div>
-    <hr style="margin: 12px 0">
 
     <VueQrcode
       :value="option.value"
@@ -69,6 +44,20 @@
       @change="val => dataUrl.data = val"
       style="margin-top: 12px"
     />
+
+    <hr style="margin: 12px 0">
+    <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
+      Show data
+    </button>
+    <button @click="copyToClipboard(dataUrl.data)" style="margin-right: 8px">
+      Copy data to clipboard
+    </button>
+    <div
+      v-if="dataUrl.show"
+      class="data-url-output">
+      {{ dataUrl.data }}
+    </div>
+    <hr style="margin: 12px 0">
   </div>
 </template>
 
@@ -80,13 +69,7 @@ import NumberRange from '@/components/form/NumberRange.vue'
 import ColorSelector from '@/components/form/ColorSelector.vue'
 import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
-
-const correctionLevel = ref([
-  { label: 'Low - 7%', value: 'low' },
-  { label: 'Medium - 15%', value: 'medium' },
-  { label: 'Quartile - 25%', value: 'quartile' },
-  { label: 'High - 30%', value: 'high' },
-])
+import ErrorCorrectionLevelSelector from '@/components/form/ErrorCorrectionLevelSelector.vue'
 
 const option = ref({
   value: 'https://peferb.github.io/fun-utils',
@@ -97,7 +80,7 @@ const option = ref({
     light: '#FFFFFF',
     dark: '#000000'
   },
-  errorCorrectionLevel: 'high',
+  errorCorrectionLevel: 'H',
   fileType: 'image/png',
   quality: 1.0
 })
@@ -111,10 +94,9 @@ const copyToClipboard = text => navigator.clipboard.writeText(text)
 </script>
 
 <style>
-.form {
+.input-container {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
 }
 
 .data-url-output {

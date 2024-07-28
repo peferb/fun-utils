@@ -1,5 +1,5 @@
 <template>
-  <div class="qr-automation">
+  <div class="page qr-automation">
     <PageTitle>
       <template #icon>
         <IconQRCode2 />
@@ -105,7 +105,6 @@ const copyToClipboard = text => navigator.clipboard.writeText(text)
 .content-tab, .options-form {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
 }
 
 .data-url-output {

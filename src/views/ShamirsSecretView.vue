@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="shamirs-secret">
+  <div class="page shamirs-secret">
     <PageTitle>
       <template #icon>
         <IconEnhancedEncryption/>

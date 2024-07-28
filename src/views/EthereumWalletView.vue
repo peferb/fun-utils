@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="ethereum-wallet">
+  <div class="page ethereum-wallet">
     <PageTitle>
       <template #icon>
         <IconQRCode2/>
