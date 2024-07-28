@@ -2,14 +2,16 @@
   <div class="file-type-selector-container">
     <BaseSelector
       :id="id"
-      label="Filetype"
+      label="Correction level"
       v-model="model"
-      :items="filetype"/>
+      :items="correctionLevelArray"
+      :value-extractor="level => level.short"
+      :description-extractor="level => level.label"/>
   </div>
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import BaseSelector from '@/components/form/BaseSelector.vue'
 
 const model = defineModel()
@@ -19,7 +21,8 @@ const props = defineProps({
     required: true
   }
 })
-const filetype = inject('filetype')
+const correctionLevel = inject('errorCorrectionLevel')
+const correctionLevelArray = ref(Object.values(correctionLevel))
 </script>
 
 <style>
