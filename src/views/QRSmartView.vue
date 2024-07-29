@@ -20,30 +20,33 @@
     </div>
 
     <h2>Visual settings</h2>
-    <div class="options-form">
-      <Columns max-columns="two">
-        <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
-        <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
-        <NumberRange id="input-width" label="Width" v-model="option.width" />
-        <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType"/>
-      </Columns>
-    </div>
-
-    <VueQrcode
-      :value="option.value"
-      :mask-pattern="option.maskPattern"
-      :errorCorrectionLevel="option.errorCorrectionLevel"
-      :version="option.version"
-      :width="option.width"
-      :color="option.color"
-      :margin="0"
-      :type="option.fileType"
-      :quality="option.quality"
-      @change="val => dataUrl.data = val"
-      style="margin-top: 12px"
+    <QrSettingsForm
+      v-model="setting"
     />
 
+    <h2>QR Code</h2>
+    <VueQrcode
+      :value="content"
+      :mask-pattern="setting.maskPattern"
+      :errorCorrectionLevel="setting.errorCorrectionLevel"
+      :version="setting.version"
+      :width="setting.width"
+      :color="setting.color"
+      :margin="0"
+      :type="setting.filetype"
+      :quality="setting.quality"
+      @change="val => dataUrl.data = val"
+      style="margin-top: 24px"
+    />
 
+    <h2>See data</h2>
+    <hr style="margin: 12px 0">
+    <button @click="showQrContent = !showQrContent" style="margin-right: 8px">
+      Show QR content
+    </button>
+    <pre
+      v-if="showQrContent"
+      class="data-url-output">{{ content }}</pre>
     <hr style="margin: 12px 0">
     <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
       Show QR data
@@ -54,29 +57,20 @@
       {{ dataUrl.data }}
     </div>
     <hr style="margin: 12px 0">
-    <button @click="showQrContent = !showQrContent" style="margin-right: 8px">
-      Show QR content
-    </button>
-    <pre
-      v-if="showQrContent"
-      class="data-url-output">{{ option.value }}</pre>
-    <hr style="margin: 12px 0">
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
 import VueQrcode from 'vue-qrcode'
 import VCardForm from '@/components/form/VCardForm.vue'
-import ColorSelector from '@/components/form/ColorSelector.vue'
-import NumberRange from '@/components/form/NumberRange.vue'
-import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
-import Columns from '@/components/Columns.vue'
+import QrSettingsForm from '@/components/form/QrSettingsForm.vue'
 
-const option = ref({
-  value: '',
+const errorCorrectionLevel = inject('errorCorrectionLevel')
+
+const setting = ref({
   maskPattern: 5,
   version: 10,
   width: 250,
@@ -84,10 +78,12 @@ const option = ref({
     light: '#FFFFFF',
     dark: '#000000'
   },
-  errorCorrectionLevel: 'low',
-  fileType: 'image/png',
+  errorCorrectionLevel: errorCorrectionLevel.LOW.short,
+  filetype: 'image/png',
   quality: 1.0
 })
+
+const content = ref('')
 
 const dataUrl = ref({
   show: false,
@@ -96,9 +92,7 @@ const dataUrl = ref({
 
 const showQrContent = ref(false)
 
-const setContent = val => option.value.value = val
-
-const copyToClipboard = text => navigator.clipboard.writeText(text)
+const setContent = val => content.value = val
 </script>
 
 <style>

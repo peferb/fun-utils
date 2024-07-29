@@ -16,33 +16,26 @@
       codes work.
     </p>
     <div class="form">
-      <TextField id="input-content" label="Content" v-model="option.value"/>
-      <Columns max-columns="two">
-        <ColorSelector id="input-color-1" label="Color 1" v-model="option.color.light" />
-        <ColorSelector id="input-color-2" label="Color 2" v-model="option.color.dark" />
-        <NumberRange id="input-width" label="Width" v-model="option.width" />
-        <NumberRange id="input-mask" label="Mask" v-model="option.maskPattern" :min="1" :max="7" />
-        <NumberRange id="input-version" label="Version" v-model="option.version" :min="1" :max="40" />
-        <NumberRange id="input-quality" label="Quality" type="float" v-model="option.quality" :min="0" :max="1" />
-        <ErrorCorrectionLevelSelector id="input-correction-level" v-model="option.errorCorrectionLevel" />
-        <FileTypeSelector id="file-type-selector" label="Filetype" v-model="option.fileType" />
-      </Columns>
+      <TextField id="input-content" label="Content" v-model="setting.value"/>
+      <QrSettingsForm v-model="setting" />
     </div>
 
+    <h2>QR Code</h2>
     <VueQrcode
-      :value="option.value"
-      :mask-pattern="option.maskPattern"
-      :errorCorrectionLevel="option.errorCorrectionLevel"
-      :version="option.version"
-      :width="option.width"
-      :color="option.color"
+      :value="setting.value"
+      :mask-pattern="setting.maskPattern"
+      :errorCorrectionLevel="setting.errorCorrectionLevel"
+      :version="setting.version"
+      :width="setting.width"
+      :color="setting.color"
       :margin="0"
-      :type="option.fileType"
-      :quality="option.quality"
+      :type="setting.fileType"
+      :quality="setting.quality"
       @change="val => dataUrl.data = val"
       style="margin-top: 12px"
     />
 
+    <h2>See data</h2>
     <hr style="margin: 12px 0">
     <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
       Show data
@@ -63,15 +56,11 @@
 import { ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import VueQrcode from 'vue-qrcode'
-import NumberRange from '@/components/form/NumberRange.vue'
-import ColorSelector from '@/components/form/ColorSelector.vue'
-import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
-import ErrorCorrectionLevelSelector from '@/components/form/ErrorCorrectionLevelSelector.vue'
-import Columns from '@/components/Columns.vue'
 import TextField from '@/components/form/TextField.vue'
+import QrSettingsForm from '@/components/form/QrSettingsForm.vue'
 
-const option = ref({
+const setting = ref({
   value: 'https://peferb.github.io/fun-utils',
   maskPattern: 1,
   version: 4,
@@ -81,7 +70,7 @@ const option = ref({
     dark: '#000000'
   },
   errorCorrectionLevel: 'H',
-  fileType: 'image/png',
+  filetype: 'image/png',
   quality: 1.0
 })
 
