@@ -28,7 +28,7 @@ h2 {
 }
 
 .half-box {
-  --top-space: 16px;
+  --top-space: 0;
   position: relative;
   min-height: 60px;
   padding-left: 8px;

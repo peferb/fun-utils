@@ -4,6 +4,7 @@
     <textarea
       :id="id"
       v-model="model"
+      :rows="rows"
       style="resize: block"/>
   </div>
 </template>
@@ -18,6 +19,10 @@ const props = defineProps({
   id: {
     type: String,
     required: true
+  },
+  rows: {
+    type: Number,
+    default: 1
   }
 })
 </script>

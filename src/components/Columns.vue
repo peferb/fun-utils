@@ -22,11 +22,12 @@ const props = defineProps({
   width: 100%;;
   display: flex;
   flex-wrap: wrap;
-}
-.columns-container >* {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+
+  >* {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
 }
 
 @media (min-width: 1024px) {

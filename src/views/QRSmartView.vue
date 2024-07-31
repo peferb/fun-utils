@@ -14,10 +14,20 @@
       Create a digital contact card.
     </p>
 
-    <h2>VCard settings</h2>
-    <div class="content-tab">
-      <VCardForm @input="setContent" />
-    </div>
+    <h2>Content</h2>
+    <Tabs
+      v-model="selectedContentTab"
+      :tabs="tabs">
+      <VCardForm
+        v-if="selectedContentTab === 'vcard'"
+        @input="setVCardInput"/>
+      <TextField
+        v-if="selectedContentTab === 'raw'"
+        v-model="rawInput"
+        id="raw-content-input"
+        :rows="12"
+        label="Content"/>
+    </Tabs>
 
     <h2>Visual settings</h2>
     <QrSettingsForm
@@ -44,9 +54,9 @@
     <button @click="showQrContent = !showQrContent" style="margin-right: 8px">
       Show QR content
     </button>
-    <pre
+    <div
       v-if="showQrContent"
-      class="data-url-output">{{ content }}</pre>
+      class="data-url-output">{{ content }}</div>
     <hr style="margin: 12px 0">
     <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
       Show QR data
@@ -61,15 +71,23 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
 import VueQrcode from 'vue-qrcode'
 import VCardForm from '@/components/form/VCardForm.vue'
 import QrSettingsForm from '@/components/form/QrSettingsForm.vue'
+import Tabs from '@/components/Tabs.vue'
+import TextField from '@/components/form/TextField.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
+const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
+const vCardInput = ref('')
+const showQrContent = ref(false)
+const selectedContentTab = ref('raw')
+const tabs = ref([{label: 'Raw', value: 'raw'}, {label: 'VCard', value: 'vcard'}])
 
+const content = computed(() => selectedContentTab.value === 'raw' ? rawInput.value : vCardInput.value)
 const setting = ref({
   maskPattern: 5,
   version: 10,
@@ -83,27 +101,18 @@ const setting = ref({
   quality: 1.0
 })
 
-const content = ref('')
-
 const dataUrl = ref({
   show: false,
   data: null
 })
 
-const showQrContent = ref(false)
-
-const setContent = val => content.value = val
+const setVCardInput = val => vCardInput.value = val
 </script>
 
 <style>
-.content-tab, .options-form {
-  display: flex;
-  flex-direction: column;
-}
-
 .data-url-output {
   line-break: anywhere;
-}
-@media (min-width: 1024px) {
+  font-family: monospace;
+  padding: 16px 0;
 }
 </style>
