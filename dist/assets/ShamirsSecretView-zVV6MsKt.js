@@ -1,1 +1,0 @@
-import{n as t,o as s,c,b as e,d as a,A as n,g as o,P as r}from"./index-Cvp1Gqc2.js";const i={class:"page shamirs-secret"},p=t({__name:"ShamirsSecretView",setup(_){return(d,l)=>(s(),c("div",i,[e(r,null,{icon:a(()=>[e(n)]),default:a(()=>[o(" Shamirs Secret ")]),_:1})]))}});export{p as default};
