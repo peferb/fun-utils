@@ -18,9 +18,21 @@
     <Tabs
       v-model="selectedContentTab"
       :tabs="tabs">
-      <VCardForm
+      <ContactForm
         v-if="selectedContentTab === 'vcard'"
-        @input="setVCardInput"/>
+        v-model:first-name.trim="vCardSettings.firstName"
+        v-model:last-name.trim="vCardSettings.lastName"
+        v-model:organisation.trim="vCardSettings.organisation"
+        v-model:title.trim="vCardSettings.title"
+        v-model:phoneWork.trim="vCardSettings.phoneWork"
+        v-model:mobile.trim="vCardSettings.mobile"
+        v-model:email.trim="vCardSettings.email"
+        v-model:url.trim="vCardSettings.url"
+        v-model:street.trim="vCardSettings.street"
+        v-model:postalNumber.trim="vCardSettings.postalNumber"
+        v-model:city.trim="vCardSettings.city"
+        v-model:country.trim="vCardSettings.country"
+      />
       <TextField
         v-if="selectedContentTab === 'raw'"
         v-model="rawInput"
@@ -31,20 +43,20 @@
 
     <h2>Visual settings</h2>
     <QrSettingsForm
-      v-model="setting"
+      v-model="qrSetting"
     />
 
     <h2>QR Code</h2>
     <VueQrcode
       :value="content"
-      :mask-pattern="setting.maskPattern"
-      :errorCorrectionLevel="setting.errorCorrectionLevel"
-      :version="setting.version"
-      :width="setting.width"
-      :color="setting.color"
+      :mask-pattern="qrSetting.maskPattern"
+      :errorCorrectionLevel="qrSetting.errorCorrectionLevel"
+      :version="qrSetting.version"
+      :width="qrSetting.width"
+      :color="qrSetting.color"
       :margin="0"
-      :type="setting.filetype"
-      :quality="setting.quality"
+      :type="qrSetting.filetype"
+      :quality="qrSetting.quality"
       @change="val => dataUrl.data = val"
       style="margin-top: 24px"
     />
@@ -75,20 +87,19 @@ import { computed, inject, ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import VueQrcode from 'vue-qrcode'
-import VCardForm from '@/components/form/VCardForm.vue'
+import ContactForm from '@/components/form/ContactForm.vue'
 import QrSettingsForm from '@/components/form/QrSettingsForm.vue'
 import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
-const vCardInput = ref('')
 const showQrContent = ref(false)
 const selectedContentTab = ref('raw')
 const tabs = ref([{label: 'Raw', value: 'raw'}, {label: 'VCard', value: 'vcard'}])
 
-const content = computed(() => selectedContentTab.value === 'raw' ? rawInput.value : vCardInput.value)
-const setting = ref({
+const content = computed(() => selectedContentTab.value === 'raw' ? rawInput.value : standardisedVCardString.value)
+const qrSetting = ref({
   maskPattern: 5,
   version: 10,
   width: 250,
@@ -100,13 +111,40 @@ const setting = ref({
   filetype: 'image/png',
   quality: 1.0
 })
+const vCardSettings = ref({
+  firstName: 'peferb',
+  lastName: '',
+  organisation: '',
+  title: 'Developer',
+  mobile: '',
+  phoneWork: '',
+  email: '',
+  url: 'github.com/peferb',
+  street: '',
+  city: '',
+  postalNumber: '',
+  country: 'Sweden',
+})
+
+const standardisedVCardString = computed(() => {
+  return `BEGIN:VCARD\nVERSION:3.0\n`
+    + `N:${vCardSettings.value.lastName};${vCardSettings.value.firstName}\n`
+    + `FN:${vCardSettings.value.lastName} ${vCardSettings.value.firstName}\n`
+    + `ORG:${vCardSettings.value.organisation}\n`
+    + `TITLE:${vCardSettings.value.title}\n`
+    + `ADR:;;${vCardSettings.value.street};${vCardSettings.value.city};;${vCardSettings.value.postalNumber};${vCardSettings.value.country}\n`
+    + `TEL;WORK;VOICE:${vCardSettings.value.phoneWork}\n`
+    + `TEL;CELL:${vCardSettings.value.mobile}\n`
+    + `EMAIL;WORK;INTERNET:${vCardSettings.value.email}\n`
+    + `URL:${vCardSettings.value.url}\n`
+    + `END:VCARD`
+})
 
 const dataUrl = ref({
   show: false,
   data: null
 })
 
-const setVCardInput = val => vCardInput.value = val
 </script>
 
 <style>
