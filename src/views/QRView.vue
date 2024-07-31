@@ -2,7 +2,7 @@
   <div class="page qr-automation">
     <PageTitle>
       <template #icon>
-        <IconQRCode2 />
+        <IconQRCode1 />
       </template>
       Smart QR codes
     </PageTitle>
@@ -73,7 +73,7 @@
 <script setup>
 import { computed, inject, ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
-import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
+import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import VueQrcode from 'vue-qrcode'
 import VCardForm from '@/components/form/VCardForm.vue'
 import QrSettingsForm from '@/components/form/QrSettingsForm.vue'

@@ -2,7 +2,6 @@
 import ContentItem from './ContentItem.vue'
 import Title from './Title.vue'
 import QRCodeIcon1 from './icons/IconQRCode1.vue'
-import QRCodeIcon2 from './icons/IconQRCode2.vue'
 import EnhancedEncryptionIcon from '@/components/icons/IconEnhancedEncryption.vue'
 import WalletIcon from '@/components/icons/IconWallet.vue'
 import { RouterLink } from 'vue-router'
@@ -13,65 +12,48 @@ import { RouterLink } from 'vue-router'
 
   <ContentItem>
     <template #icon>
-      <QRCodeIcon1/>
+      <QRCodeIcon1 />
     </template>
-    <template #heading><RouterLink to="/qr-simple">QR</RouterLink> - Basic QR code</template>
-    <ul>
+    <template #heading>
+      <RouterLink to="/qr">QR</RouterLink>
+      - Create QR codes
+    </template>
+    <ul class="checked">
+      <li>Create VCard (digital contact)</li>
+      <li>Create custom "raw" QR</li>
       <li>Resize</li>
       <li>Select foreground/background color</li>
       <li>Manually set mask</li>
       <li>Error correction level</li>
       <li>Filetype</li>
       <li>Quality</li>
-      <li>See "raw" data</li>
-      <li>Copy to clipboard</li>
-    </ul>
-  </ContentItem>
-
-  <ContentItem>
-    <template #icon>
-      <QRCodeIcon2/>
-    </template>
-    <template #heading><RouterLink to="/qr-advanced">QR2</RouterLink> - Smart QR code</template>
-    <ul>
-      <li>VCard (digital contact)</li>
-      <li>Resize</li>
-      <li>Select foreground/background color</li>
+      <li>See qr content</li>
+      <li>See qr as image data</li>
       <li>Filetype</li>
     </ul>
-    <br>
-    <pre>// TODO WIFI QR code</pre>
-  </ContentItem>
-
-  <ContentItem>
-    <template #icon>
-      <QRCodeIcon1/>
-    </template>
-    <template #heading><RouterLink to="/qr-advanced">QR3</RouterLink> - QR with logo</template>
-    <pre>// TODO</pre>
-    <ul style="text-decoration: line-through;">
-      <li>Resize</li>
-      <li>Select foreground/background color</li>
+    <ul class="unchecked">
+      <li>Create WIFI QR</li>
       <li>Select positioning colors</li>
-      <li>Spacing height</li>
-      <li>Spacing color</li>
+      <li>Spacing</li>
       <li>Timing X/Y color</li>
       <li>Binary Content</li>
-      <li>Error recovery level</li>
       <li>Add image/logo</li>
     </ul>
   </ContentItem>
 
   <ContentItem>
     <template #icon>
-      <EnhancedEncryptionIcon/>
+      <EnhancedEncryptionIcon />
     </template>
-    <template #heading><RouterLink to="/shamirs-secret">SS</RouterLink> - Shamirs Secret</template>
+    <template #heading>
+      <RouterLink to="/shamirs-secret">SS</RouterLink>
+      - Shamirs Secret
+    </template>
     <p style="padding-bottom: 12px; font-style: italic">
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
     </p>
     <pre>// TODO</pre>
-    <ul style="text-decoration: line-through;">
+    <ul class="unchecked">
       <li>split secret into n parts</li>
       <li>set parts required for restoration</li>
       <li>restore secret</li>
@@ -80,11 +62,14 @@ import { RouterLink } from 'vue-router'
 
   <ContentItem>
     <template #icon>
-      <WalletIcon/>
+      <WalletIcon />
     </template>
-    <template #heading><RouterLink to="/ethereum-wallet">ETH</RouterLink> - generate Ethereum wallets</template>
-    <span style="font-weight: bolder">// TODO</span>
-    <ul style="text-decoration: line-through;">
+    <template #heading>
+      <RouterLink to="/ethereum-wallet">ETH</RouterLink>
+      - generate Ethereum wallets
+    </template>
+    <pre>// TODO</pre>
+    <ul class="unchecked">
       <li>generate n wallets</li>
       <li>output includes private key, address and mnemonic</li>
       <li>match in end</li>
@@ -97,7 +82,18 @@ import { RouterLink } from 'vue-router'
 
 <style>
 ul {
-  list-style: circle;
   padding-inline-start: 18px;
+
+  &.checked {
+    list-style-type: "\2714";
+  }
+
+  &.unchecked {
+    list-style-type: "\00D7";
+  }
+}
+
+li {
+  padding-left: 8px;
 }
 </style>
