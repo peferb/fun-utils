@@ -1,1 +1,0 @@
-import{s as a,o,c as s,a as e,w as t,q as c,e as l,P as n}from"./index-CyLGHn5M.js";const r={class:"page ethereum-wallet"},d=a({__name:"EthereumWalletView",setup(_){return(i,m)=>(o(),s("div",r,[e(n,null,{icon:t(()=>[e(c)]),default:t(()=>[l(" Ethereum wallet ")]),_:1})]))}});export{d as default};
