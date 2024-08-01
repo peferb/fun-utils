@@ -49,14 +49,14 @@
     <h2>QR Code</h2>
     <VueQrcode
       :value="content"
-      :mask-pattern="qrSetting.maskPattern"
-      :errorCorrectionLevel="qrSetting.errorCorrectionLevel"
-      :version="qrSetting.version"
-      :width="qrSetting.width"
-      :color="qrSetting.color"
+      :mask-pattern="qrSettings.maskPattern"
+      :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
+      :version="qrSettings.version"
+      :width="qrSettings.width"
+      :color="qrSettings.color"
       :margin="0"
-      :type="qrSetting.filetype"
-      :quality="qrSetting.quality"
+      :type="qrSettings.filetype"
+      :quality="qrSettings.quality"
       @change="val => dataUrl.data = val"
       style="margin-top: 24px"
     />
@@ -99,7 +99,7 @@ const selectedContentTab = ref('raw')
 const tabs = ref([{label: 'Raw', value: 'raw'}, {label: 'VCard', value: 'vcard'}])
 
 const content = computed(() => selectedContentTab.value === 'raw' ? rawInput.value : standardisedVCardString.value)
-const qrSetting = ref({
+const qrSettings = ref({
   maskPattern: 5,
   version: 10,
   width: 250,
