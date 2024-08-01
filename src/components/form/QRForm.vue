@@ -2,7 +2,7 @@
   <Columns max-columns="two">
     <ColorSelector id="input-color-1" label="Color 1" v-model="setting.color.light" />
     <ColorSelector id="input-color-2" label="Color 2" v-model="setting.color.dark" />
-    <NumberRange id="input-width" label="Width" v-model="setting.width" />
+    <NumberRange id="input-width" label="Size" v-model="setting.width" />
     <NumberRange id="input-mask" label="Mask" v-model="setting.maskPattern" :min="1" :max="7" />
     <NumberRange id="input-version" label="Version" v-model="setting.version" :min="1" :max="40" />
     <NumberRange id="input-quality" label="Quality" type="float" v-model="setting.quality" :min="0" :max="1" />
