@@ -33,6 +33,7 @@
         v-model="wifiSettings" />
     </Tabs>
 
+    <!-- TODO make these settings hidden toggable -->
     <h2>Visual settings</h2>
     <!-- TODO remove broken "quality" -->
     <!-- TODO break up in tabs "visual" and "format" -->
