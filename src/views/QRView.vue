@@ -4,7 +4,7 @@
       <template #icon>
         <IconQRCode1 />
       </template>
-      Smart QR codes
+      Create QR codes
     </PageTitle>
     <p>
       Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
