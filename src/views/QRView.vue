@@ -43,7 +43,7 @@
 
     <h2>Visual settings</h2>
     <QrSettingsForm
-      v-model="qrSetting"
+      v-model="qrSettings"
     />
 
     <h2>QR Code</h2>
