@@ -31,9 +31,7 @@
     </Tabs>
 
     <h2>Visual settings</h2>
-    <QrSettingsForm
-      v-model="qrSettings"
-    />
+    <QRForm v-model="qrSettings" />
 
     <h2>QR Code</h2>
     <VueQrcode
@@ -77,7 +75,7 @@ import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import VueQrcode from 'vue-qrcode'
 import ContactForm from '@/components/form/ContactForm.vue'
-import QrSettingsForm from '@/components/form/QrSettingsForm.vue'
+import QRForm from '@/components/form/QRForm.vue'
 import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
 
