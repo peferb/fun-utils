@@ -34,22 +34,25 @@
     </Tabs>
 
     <h2>Visual settings</h2>
-    <QRForm v-model="qrSettings" />
+    <div class="box">
+      <QRForm v-model="qrSettings" />
+    </div>
 
     <h2>QR Code</h2>
-    <VueQrcode
-      :value="content"
-      :mask-pattern="qrSettings.maskPattern"
-      :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
-      :version="qrSettings.version"
-      :width="qrSettings.width"
-      :color="qrSettings.color"
-      :margin="0"
-      :type="qrSettings.filetype"
-      :quality="qrSettings.quality"
-      @change="val => dataUrl.data = val"
-      style="margin-top: 24px"
-    />
+    <div class="box">
+      <VueQrcode
+        :value="content"
+        :mask-pattern="qrSettings.maskPattern"
+        :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
+        :version="qrSettings.version"
+        :width="qrSettings.width"
+        :color="qrSettings.color"
+        :margin="0"
+        :type="qrSettings.filetype"
+        :quality="qrSettings.quality"
+        @change="val => dataUrl.data = val"
+      />
+    </div>
 
     <h2>See data</h2>
     <hr style="margin: 12px 0">

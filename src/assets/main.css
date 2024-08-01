@@ -27,6 +27,11 @@ h2 {
   max-width: 800px;
 }
 
+.box {
+  border: #444 1px solid;
+  padding: 16px;
+}
+
 .half-box {
   --top-space: 0;
   position: relative;

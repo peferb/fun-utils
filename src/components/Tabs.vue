@@ -9,7 +9,7 @@
         {{ tab.label }}
       </div>
     </div>
-    <div class="slot-wrapper">
+    <div class="box slot-wrapper">
       <slot name="default" />
     </div>
   </div>
@@ -32,18 +32,13 @@ const emit = defineEmits(['update:modelValue'])
 </script>
 
 <style>
-.tabs-container {
-}
-
 .tabs {
   display: flex;
   border: #444 1px solid;
 }
 
 .slot-wrapper {
-  border: #444 1px solid;
   border-top: 0;
-  padding: 16px;
 }
 
 .tab {
