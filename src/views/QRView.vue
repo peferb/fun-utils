@@ -34,12 +34,17 @@
     </Tabs>
 
     <h2>Visual settings</h2>
+    <!-- TODO remove broken "quality" -->
+    <!-- TODO break up in tabs "visual" and "format" -->
+    <!-- visual = [color1, color2, size] -->
+    <!-- format = the rest -->
     <div class="box">
       <QRForm v-model="qrSettings" />
     </div>
 
     <h2>QR Code</h2>
-    <div class="box">
+    <!-- TODO make wrapping div resizable and the qr movable inside of it -->
+    <div class="box" style="background-color: #444444">
       <VueQrcode
         :value="content"
         :mask-pattern="qrSettings.maskPattern"
@@ -55,6 +60,7 @@
     </div>
 
     <h2>See data</h2>
+    <!-- TODO wrap in Tabs (and maybe remove box padding and border on mobile?) -->
     <hr style="margin: 12px 0">
     <button @click="showQrContent = !showQrContent" style="margin-right: 8px">
       Show QR content
