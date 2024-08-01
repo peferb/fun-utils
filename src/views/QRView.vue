@@ -20,18 +20,7 @@
       :tabs="tabs">
       <ContactForm
         v-if="selectedContentTab === 'vcard'"
-        v-model:first-name.trim="vCardSettings.firstName"
-        v-model:last-name.trim="vCardSettings.lastName"
-        v-model:organisation.trim="vCardSettings.organisation"
-        v-model:title.trim="vCardSettings.title"
-        v-model:phoneWork.trim="vCardSettings.phoneWork"
-        v-model:mobile.trim="vCardSettings.mobile"
-        v-model:email.trim="vCardSettings.email"
-        v-model:url.trim="vCardSettings.url"
-        v-model:street.trim="vCardSettings.street"
-        v-model:postalNumber.trim="vCardSettings.postalNumber"
-        v-model:city.trim="vCardSettings.city"
-        v-model:country.trim="vCardSettings.country"
+        v-model="vCardSettings"
       />
       <TextField
         v-if="selectedContentTab === 'raw'"
