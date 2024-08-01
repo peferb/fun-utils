@@ -6,8 +6,10 @@
 }
 
 const filetype = ['image/png', 'image/jpeg', 'image/webp']
+const wifiEncryption = ['WPA', 'WEP', '']
 
 export {
   errorCorrectionLevel,
-  filetype
+  filetype,
+  wifiEncryption
 }

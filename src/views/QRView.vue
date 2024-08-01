@@ -16,18 +16,21 @@
 
     <h2>Content</h2>
     <Tabs
-      v-model="selectedContentTab"
+      v-model="selectedTab"
       :tabs="tabs">
-      <ContactForm
-        v-if="selectedContentTab === 'vcard'"
-        v-model="vCardSettings"
-      />
       <TextField
-        v-if="selectedContentTab === 'raw'"
+        v-if="selectedTab === 'raw'"
         v-model="rawInput"
         id="raw-content-input"
         :rows="12"
         label="Content"/>
+      <ContactForm
+        v-if="selectedTab === 'vcard'"
+        v-model="vCardSettings"
+      />
+      <WIFIForm
+        v-if="selectedTab === 'wifi'"
+        v-model="wifiSettings" />
     </Tabs>
 
     <h2>Visual settings</h2>
@@ -78,14 +81,23 @@ import ContactForm from '@/components/form/ContactForm.vue'
 import QRForm from '@/components/form/QRForm.vue'
 import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
+import WIFIForm from '@/components/form/WIFIForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
 const showQrContent = ref(false)
-const selectedContentTab = ref('raw')
-const tabs = ref([{label: 'Raw', value: 'raw'}, {label: 'VCard', value: 'vcard'}])
+const selectedTab = ref('raw')
+const tabs = ref([
+  {label: 'Raw', value: 'raw'},
+  {label: 'VCard', value: 'vcard'},
+  {label: 'WIFI', value: 'wifi'}
+])
 
-const content = computed(() => selectedContentTab.value === 'raw' ? rawInput.value : standardisedVCardString.value)
+const content = computed(() => selectedTab.value === 'raw' ? rawInput.value
+  : selectedTab.value === 'vcard' ? standardisedVCardString.value
+  : standardisedWIFIString.value
+)
+
 const qrSettings = ref({
   maskPattern: 5,
   version: 10,
@@ -98,6 +110,18 @@ const qrSettings = ref({
   filetype: 'image/png',
   quality: 1.0
 })
+
+const wifiSettings = ref({
+  SSID: "My-network",
+  encryptionType: "WPA",
+  password: "My not so secret password",
+  hiddenNetwork: false,
+})
+const standardisedWIFIString = computed(() => `WIFI:`
+  + `T:${wifiSettings.value.encryptionType};`
+  + `S:${wifiSettings.value.SSID};`
+  + `P:${(!!wifiSettings.value.encryptionType) ? wifiSettings.value.password : '' };H:${wifiSettings.value.hiddenNetwork};`)
+
 const vCardSettings = ref({
   firstName: 'peferb',
   lastName: '',
@@ -112,7 +136,6 @@ const vCardSettings = ref({
   postalNumber: '',
   country: 'Sweden',
 })
-
 const standardisedVCardString = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
   + `N:${vCardSettings.value.lastName};${vCardSettings.value.firstName}\n`
   + `FN:${vCardSettings.value.lastName} ${vCardSettings.value.firstName}\n`
