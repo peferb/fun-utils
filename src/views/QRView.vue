@@ -126,19 +126,17 @@ const vCardSettings = ref({
   country: 'Sweden',
 })
 
-const standardisedVCardString = computed(() => {
-  return `BEGIN:VCARD\nVERSION:3.0\n`
-    + `N:${vCardSettings.value.lastName};${vCardSettings.value.firstName}\n`
-    + `FN:${vCardSettings.value.lastName} ${vCardSettings.value.firstName}\n`
-    + `ORG:${vCardSettings.value.organisation}\n`
-    + `TITLE:${vCardSettings.value.title}\n`
-    + `ADR:;;${vCardSettings.value.street};${vCardSettings.value.city};;${vCardSettings.value.postalNumber};${vCardSettings.value.country}\n`
-    + `TEL;WORK;VOICE:${vCardSettings.value.phoneWork}\n`
-    + `TEL;CELL:${vCardSettings.value.mobile}\n`
-    + `EMAIL;WORK;INTERNET:${vCardSettings.value.email}\n`
-    + `URL:${vCardSettings.value.url}\n`
-    + `END:VCARD`
-})
+const standardisedVCardString = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
+  + `N:${vCardSettings.value.lastName};${vCardSettings.value.firstName}\n`
+  + `FN:${vCardSettings.value.lastName} ${vCardSettings.value.firstName}\n`
+  + `ORG:${vCardSettings.value.organisation}\n`
+  + `TITLE:${vCardSettings.value.title}\n`
+  + `ADR:;;${vCardSettings.value.street};${vCardSettings.value.city};;${vCardSettings.value.postalNumber};${vCardSettings.value.country}\n`
+  + `TEL;WORK;VOICE:${vCardSettings.value.phoneWork}\n`
+  + `TEL;CELL:${vCardSettings.value.mobile}\n`
+  + `EMAIL;WORK;INTERNET:${vCardSettings.value.email}\n`
+  + `URL:${vCardSettings.value.url}\n`
+  + `END:VCARD`)
 
 const dataUrl = ref({
   show: false,
