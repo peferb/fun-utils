@@ -9,7 +9,9 @@
         {{ tab }}
       </div>
     </div>
-    <div class="box slot-wrapper">
+    <div
+      v-if="!onlyTabs"
+      class="box slot-wrapper">
       <slot name="default" />
     </div>
   </div>
@@ -20,6 +22,10 @@ defineProps({
   tabs: {
     type: Array,
     default: ['Tab1', 'Tab2']
+  },
+  onlyTabs: {
+    type: Boolean,
+    default: false
   }
 })
 

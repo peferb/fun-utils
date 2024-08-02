@@ -47,15 +47,19 @@
     </Tabs>
 
     <h2>QR Code</h2>
-    <!-- TODO make wrapping div resizable and the qr movable inside of it -->
+    <Tabs
+      v-model="qrSettings.colorSetting"
+      :tabs="['Regular', 'Inverted']"
+      only-tabs/>
     <div class="box qr-container">
+      <!-- TODO make wrapping div resizable and the qr movable inside of it -->
       <VueQrcode
         :value="content"
         :mask-pattern="qrSettings.maskPattern"
         :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
         :version="qrSettings.version"
         :width="qrSettings.width"
-        :color="qrSettings.color"
+        :color="qrSettings.colorSetting === 'Regular' ? qrSettings.color : {light: qrSettings.color.dark, dark: qrSettings.color.light}"
         :margin="0"
         :type="qrSettings.filetype"
         @change="val => dataUrl = val"
@@ -112,6 +116,7 @@ const qrSettings = ref({
     light: '#FFFFFF',
     dark: '#000000'
   },
+  colorSetting: 'Regular',
   errorCorrectionLevel: errorCorrectionLevel.LOW.short,
   filetype: 'image/png',
   quality: 1
@@ -162,6 +167,7 @@ const dataUrl = ref(null)
 .qr-container {
   background-color: var(--vt-c-code-monster-v2);
 }
+
 .data-url-output {
   line-break: anywhere;
   font-family: monospace;
