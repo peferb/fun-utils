@@ -42,7 +42,7 @@ const emit = defineEmits(['update:modelValue'])
 .tab {
   flex-grow: 1;
   text-align: center;
-  color: white;
+  color: var(--color-text);
   font-weight: 600;
   opacity: .75;
   cursor: pointer;
@@ -51,7 +51,7 @@ const emit = defineEmits(['update:modelValue'])
 
   &.active {
     cursor: default;
-    background-color: var(--vt-c-text-light-1);
+    background-color: var(--color-background-mute);
   }
 
   &:hover:not(.active) {
