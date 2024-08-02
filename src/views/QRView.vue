@@ -40,7 +40,7 @@
       :tabs="qrTabs">
       <QRVisualForm
         v-if="selectedTabs.qr === 'Visual'"
-        v-model="qrSettings"/>
+        v-model="qrSettings" />
       <QRFormatForm
         v-if="selectedTabs.qr === 'Format'"
         v-model="qrSettings" />
@@ -58,33 +58,25 @@
         :color="qrSettings.color"
         :margin="0"
         :type="qrSettings.filetype"
-        @change="val => dataUrl.data = val"
+        @change="val => dataUrl = val"
       />
     </div>
 
-    <!-- TODO save and load to local storage -->
-    <h2 v-if="false">Save settings locally</h2>
-
-    <h2>See data</h2>
-    <!-- TODO wrap in Tabs (and maybe remove box padding and border on mobile?) -->
-    <hr style="margin: 12px 0">
-    <button @click="showQrContent = !showQrContent" style="margin-right: 8px">
-      Show QR content
-    </button>
-    <div
-      v-if="showQrContent"
-      class="data-url-output">{{ content }}
-    </div>
-    <hr style="margin: 12px 0">
-    <button @click="dataUrl.show = !dataUrl.show" style="margin-right: 8px">
-      Show QR data
-    </button>
-    <div
-      v-if="dataUrl.show"
-      class="data-url-output">
-      {{ dataUrl.data }}
-    </div>
-    <hr style="margin: 12px 0">
+    <h2>Data</h2>
+    <Tabs
+      v-model="selectedTabs.seeData"
+      :tabs="seeDataTabs">
+      <div
+        v-if="selectedTabs.seeData === 'Content'"
+        class="data-url-output">
+        {{ content }}
+      </div>
+      <div
+        v-if="selectedTabs.seeData === 'Data URL'"
+        class="data-url-output">
+        {{ dataUrl }}
+      </div>
+    </Tabs>
   </div>
 </template>
 
@@ -102,13 +94,13 @@ import QRVisualForm from '@/components/form/QRVisualForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
-const showQrContent = ref(false)
 const contentTabs = ref(['Raw', 'VCard', 'WIFI'])
 const qrTabs = ref(['Visual', 'Format'])
-const selectedTabs = ref({ content: 'Raw', qr: 'Visual' })
+const seeDataTabs = ref(['Content', 'Data URL'])
+const selectedTabs = ref({ content: 'Raw', qr: 'Visual', seeData: 'Content' })
 
-const content = computed(() => selectedTabs.value.content === 'raw' ? rawInput.value
-  : selectedTabs.value.content === 'vcard' ? standardisedVCardString.value
+const content = computed(() => selectedTabs.value.content === 'Raw' ? rawInput.value
+  : selectedTabs.value.content === 'VCard' ? standardisedVCardString.value
     : standardisedWIFIString.value
 )
 
@@ -162,10 +154,7 @@ const standardisedVCardString = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
   + `URL:${vCardSettings.value.url}\n`
   + `END:VCARD`)
 
-const dataUrl = ref({
-  show: false,
-  data: null
-})
+const dataUrl = ref(null)
 
 </script>
 
