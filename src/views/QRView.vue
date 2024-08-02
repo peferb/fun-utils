@@ -98,7 +98,7 @@ const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
 const showQrContent = ref(false)
 const contentTabs = ref(['Raw', 'VCard', 'WIFI'])
-const selectedTabs = ref({content: 'raw', qr: 'Visual'})
+const selectedTabs = ref({content: 'Raw', qr: 'Visual'})
 
 const content = computed(() => selectedTabs.value.content === 'raw' ? rawInput.value
   : selectedTabs.value.content === 'vcard' ? standardisedVCardString.value
