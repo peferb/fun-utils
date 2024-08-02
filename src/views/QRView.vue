@@ -34,14 +34,17 @@
     </Tabs>
 
     <!-- TODO make these settings hidden toggable -->
-    <h2>Visual settings</h2>
-    <!-- TODO remove broken "quality" -->
-    <!-- TODO break up in tabs "visual" and "format" -->
-    <!-- visual = [color1, color2, size] -->
-    <!-- format = the rest -->
-    <div class="box">
-      <QRForm v-model="qrSettings" />
-    </div>
+    <h2>Settings</h2>
+    <Tabs
+      v-model="selectedTabs.qr"
+      :tabs="qrTabs">
+      <QRVisualForm
+        v-if="selectedTabs.qr === 'Visual'"
+        v-model="qrSettings"/>
+      <QRFormatForm
+        v-if="selectedTabs.qr === 'Format'"
+        v-model="qrSettings" />
+    </Tabs>
 
     <h2>QR Code</h2>
     <!-- TODO make wrapping div resizable and the qr movable inside of it -->
@@ -55,7 +58,6 @@
         :color="qrSettings.color"
         :margin="0"
         :type="qrSettings.filetype"
-        :quality="qrSettings.quality"
         @change="val => dataUrl.data = val"
       />
     </div>
@@ -89,16 +91,18 @@ import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import VueQrcode from 'vue-qrcode'
 import ContactForm from '@/components/form/ContactForm.vue'
-import QRForm from '@/components/form/QRForm.vue'
+import QRFormatForm from '@/components/form/QRFormatForm.vue'
 import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
 import WIFIForm from '@/components/form/WIFIForm.vue'
+import QRVisualForm from '@/components/form/QRVisualForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
 const showQrContent = ref(false)
 const contentTabs = ref(['Raw', 'VCard', 'WIFI'])
-const selectedTabs = ref({content: 'Raw', qr: 'Visual'})
+const qrTabs = ref(['Visual', 'Format'])
+const selectedTabs = ref({ content: 'Raw', qr: 'Visual' })
 
 const content = computed(() => selectedTabs.value.content === 'raw' ? rawInput.value
   : selectedTabs.value.content === 'vcard' ? standardisedVCardString.value
@@ -115,7 +119,7 @@ const qrSettings = ref({
   },
   errorCorrectionLevel: errorCorrectionLevel.LOW.short,
   filetype: 'image/png',
-  quality: 1.0
+  quality: 1
 })
 
 const wifiSettings = ref({
