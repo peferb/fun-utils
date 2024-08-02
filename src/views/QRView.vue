@@ -48,7 +48,7 @@
 
     <h2>QR Code</h2>
     <!-- TODO make wrapping div resizable and the qr movable inside of it -->
-    <div class="box" style="background-color: #444444">
+    <div class="box qr-container">
       <VueQrcode
         :value="content"
         :mask-pattern="qrSettings.maskPattern"
@@ -159,6 +159,9 @@ const dataUrl = ref(null)
 </script>
 
 <style>
+.qr-container {
+  background-color: var(--vt-c-code-monster-v2);
+}
 .data-url-output {
   line-break: anywhere;
   font-family: monospace;

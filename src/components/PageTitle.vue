@@ -13,7 +13,7 @@
 .page-title-container {
   display: flex;
   align-items: baseline;
-  color: #f2f2f2;
+  color: var(--color-heading);;
 }
 .page-title {
   font-size: xx-large;

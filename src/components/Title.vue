@@ -4,7 +4,7 @@
 
 <style>
 .title {
-  color: #f2f2f2;
+  color: var(--color-heading);
   font-weight: 600;
 }
 </style>

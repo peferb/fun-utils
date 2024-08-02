@@ -28,7 +28,7 @@ h2 {
 }
 
 .box {
-  border: #444 1px solid;
+  border: var(--color-border) 1px solid;
   padding: 16px;
 }
 
@@ -46,7 +46,7 @@ h2 {
     width: 2px;
     top: var(--top-space);
     height: 50%;
-    background-color: #333;
+    background-color: var(--color-border);
   }
   &:after {
     content: "";
@@ -55,7 +55,7 @@ h2 {
     right: 8px;
     top: var(--top-space);
     height: 2px;
-    background-color: #333;
+    background-color: var(--color-border);
   }
 }
 

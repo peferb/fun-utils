@@ -32,7 +32,7 @@ const emit = defineEmits(['update:modelValue'])
 <style>
 .tabs {
   display: flex;
-  border: #444 1px solid;
+  border: var(--color-border) 1px solid;
 }
 
 .slot-wrapper {
@@ -51,7 +51,7 @@ const emit = defineEmits(['update:modelValue'])
 
   &.active {
     cursor: default;
-    background-color: #444;
+    background-color: var(--vt-c-text-light-1);
   }
 
   &:hover:not(.active) {
