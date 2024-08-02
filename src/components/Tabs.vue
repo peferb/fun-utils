@@ -3,10 +3,10 @@
     <div class="tabs">
       <div
         v-for="tab in tabs"
-        @click="handleClick(tab.value)"
-        :class="tab.value === modelValue ? 'active' : null"
+        @click="handleClick(tab)"
+        :class="tab === modelValue ? 'active' : null"
         class="tab">
-        {{ tab.label }}
+        {{ tab }}
       </div>
     </div>
     <div class="box slot-wrapper">
@@ -19,9 +19,7 @@
 defineProps({
   tabs: {
     type: Array,
-    default: [
-      { label: 'label', value: 'tab' }
-    ]
+    default: ['Tab1', 'Tab2']
   }
 })
 

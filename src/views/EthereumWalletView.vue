@@ -10,6 +10,7 @@
         <IconQRCode2/>
       </template>
       Ethereum wallet
+      <!-- TODO Add Trijo invite link -->
     </PageTitle>
   </div>
 </template>
