@@ -51,7 +51,9 @@
       v-model="qrSettings.colorSetting"
       :tabs="['Regular', 'Inverted']"
       only-tabs/>
-    <div class="box qr-container">
+    <div
+      class="box"
+      :style="`background-color: ${qrSettings.background}`">
       <!-- TODO make wrapping div resizable and the qr movable inside of it -->
       <VueQrcode
         :value="content"
@@ -108,6 +110,8 @@ const content = computed(() => selectedTabs.value.content === 'Raw' ? rawInput.v
     : standardisedWIFIString.value
 )
 
+/** @type {string} codeMonsterV2Background - https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster*/
+const codeMonsterV2Background = '#808080'
 const qrSettings = ref({
   maskPattern: 5,
   version: 10,
@@ -116,6 +120,7 @@ const qrSettings = ref({
     light: '#FFFFFF',
     dark: '#000000'
   },
+  background: codeMonsterV2Background,
   colorSetting: 'Regular',
   errorCorrectionLevel: errorCorrectionLevel.LOW.short,
   filetype: 'image/png',
@@ -164,10 +169,6 @@ const dataUrl = ref(null)
 </script>
 
 <style>
-.qr-container {
-  background-color: var(--vt-c-code-monster-v2);
-}
-
 .data-url-output {
   line-break: anywhere;
   font-family: monospace;
