@@ -2,7 +2,7 @@
   <Columns max-columns="two">
     <Input
       v-model="model.SSID"
-      label="SSID / Network name"
+      label="SSID"
       type="text"
       id="ssid-input" />
 

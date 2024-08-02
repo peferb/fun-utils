@@ -126,7 +126,7 @@ const qrSettings = ref({
 })
 
 const wifiSettings = ref({
-  SSID: 'My-network',
+  SSID: 'my-network-name',
   encryptionType: 'WPA',
   password: 'My not so secret password',
   hiddenNetwork: false
