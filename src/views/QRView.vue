@@ -62,6 +62,9 @@
       />
     </div>
 
+    <!-- TODO save and load to local storage -->
+    <h2 v-if="false">Save settings locally</h2>
+
     <h2>See data</h2>
     <!-- TODO wrap in Tabs (and maybe remove box padding and border on mobile?) -->
     <hr style="margin: 12px 0">
