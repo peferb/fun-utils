@@ -171,6 +171,5 @@ const dataUrl = ref(null)
 .data-url-output {
   line-break: anywhere;
   font-family: monospace;
-  padding: 16px 0;
 }
 </style>
