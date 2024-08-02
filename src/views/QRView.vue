@@ -10,9 +10,6 @@
       Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
       <a href="https://www.npmjs.com/package/vue-qrcode">NPM</a>.
     </p>
-    <p>
-      Create a digital contact card.
-    </p>
 
     <h2>Content</h2>
     <Tabs
@@ -67,6 +64,7 @@
         @change="val => dataUrl = val"
       />
     </div>
+    <!-- TODO add "wHy IsNt iT wOrKinG?!?!"-FAQ box -->
 
     <h2>Data</h2>
     <Tabs

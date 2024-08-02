@@ -19,20 +19,20 @@ import { RouterLink } from 'vue-router'
       - Create QR codes
     </template>
     <ul class="checked">
+      <li>Create WIFI QR</li>
       <li>Create VCard (digital contact)</li>
       <li>Create custom "raw" QR</li>
       <li>Resize</li>
-      <li>Select foreground/background color</li>
+      <li>Select QR colors</li>
+      <li>Select QR context color</li>
       <li>Manually set mask</li>
       <li>Error correction level</li>
       <li>Filetype</li>
-      <li>Quality</li>
       <li>See qr content</li>
       <li>See qr as image data</li>
       <li>Filetype</li>
     </ul>
     <ul class="unchecked">
-      <li>Create WIFI QR</li>
       <li>Select positioning colors</li>
       <li>Spacing</li>
       <li>Timing X/Y color</li>
