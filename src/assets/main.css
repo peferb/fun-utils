@@ -17,6 +17,7 @@ a,
 
 h2 {
   margin-top: 24px;
+  color: var(--color-heading);
 }
 
 .page {
