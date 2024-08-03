@@ -66,6 +66,16 @@
     </div>
     <!-- TODO add "wHy IsNt iT wOrKinG?!?!"-FAQ box -->
 
+    <!-- TODO Link to https://www.webfx.com/blog/web-design/qr-codes-uri-schemes/ -->
+    <!-- TODO and tell them to look at content and use "RAW" -->
+
+    <!-- TODO explain data size -->
+    <!-- TODO explain image size and color contrast effect on camera -->
+    <!-- TODO explain spacing/context effect on camera -->
+    <!-- TODO explain monster v2 color (+invert) + link -->
+    <!-- TODO explain qr scanner vs regular camera -->
+    <!-- TODO explain correction level and how it relates to image/logo -->
+
     <h2>Data</h2>
     <Tabs
       v-model="selectedTabs.seeData"
