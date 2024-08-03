@@ -1,8 +1,8 @@
 <template>
   <Columns max-columns="two">
     <Input
-      v-model="model.SSID"
-      label="SSID"
+      v-model="model.SSSID"
+      label="SSSID"
       type="text"
       id="ssid-input" />
 
@@ -37,7 +37,7 @@ import BaseSelector from '@/components/form/BaseSelector.vue'
 
 const model = defineModel({
   type: {
-    SSID: { type: String, default: '' },
+    SSSID: { type: String, default: '' },
     encryptionType: { type: String, default: '' },
     password: { type: String, default: '' },
     hiddenNetwork: { type: Boolean, default: false }

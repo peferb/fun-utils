@@ -22,15 +22,14 @@ import { RouterLink } from 'vue-router'
       <li>Create WIFI QR</li>
       <li>Create VCard (digital contact)</li>
       <li>Create custom "raw" QR</li>
-      <li>Resize</li>
       <li>Select QR colors</li>
       <li>Select QR context color</li>
-      <li>Manually set mask</li>
-      <li>Error correction level</li>
-      <li>Filetype</li>
+      <li>Select error correction level</li>
+      <li>Select image filetype</li>
+      <li>Select mask</li>
       <li>See qr content</li>
       <li>See qr as image data</li>
-      <li>Filetype</li>
+      <li>Resize</li>
     </ul>
     <ul class="unchecked">
       <li>Select positioning colors</li>
@@ -46,8 +45,8 @@ import { RouterLink } from 'vue-router'
       <EnhancedEncryptionIcon />
     </template>
     <template #heading>
-      <RouterLink to="/shamirs-secret">SS</RouterLink>
-      - Shamirs Secret
+      <RouterLink to="/shamirs-secret-sharing">SSS</RouterLink>
+      - Shamirs Secret Sharing
     </template>
     <p style="padding-bottom: 12px; font-style: italic">
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>

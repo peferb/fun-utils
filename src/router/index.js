@@ -15,8 +15,8 @@ const router = createRouter({
       component: () => import('../views/QRView.vue')
     },
     {
-      path: '/shamirs-secret',
-      name: 'shamirs-secret',
+      path: '/shamirs-secret-sharing',
+      name: 'shamirs-secret-sharing',
       component: () => import('../views/ShamirsSecretView.vue')
     },
     {

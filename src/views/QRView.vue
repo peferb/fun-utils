@@ -4,7 +4,7 @@
       <template #icon>
         <IconQRCode1 />
       </template>
-      Create QR codes
+      Create QR code
     </PageTitle>
     <p>
       Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
@@ -126,14 +126,14 @@ const qrSettings = ref({
 })
 
 const wifiSettings = ref({
-  SSID: 'my-network-name',
+  SSSID: 'my-network-name',
   encryptionType: 'WPA',
   password: 'My not so secret password',
   hiddenNetwork: false
 })
 const standardisedWIFIString = computed(() => `WIFI:`
   + `T:${wifiSettings.value.encryptionType};`
-  + `S:${wifiSettings.value.SSID};`
+  + `S:${wifiSettings.value.SSSID};`
   + `P:${(!!wifiSettings.value.encryptionType) ? wifiSettings.value.password : ''};H:${wifiSettings.value.hiddenNetwork};`)
 
 const vCardSettings = ref({

@@ -4,12 +4,12 @@
 </script>
 
 <template>
-  <div class="page shamirs-secret">
+  <div class="page shamirs-secret-sharing">
     <PageTitle>
       <template #icon>
         <IconEnhancedEncryption/>
       </template>
-      Shamirs Secret
+      Shamir's secret sharing
     </PageTitle>
   </div>
 </template>

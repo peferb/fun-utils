@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <nav>
         <RouterLink to="/">About</RouterLink>
         <RouterLink to="/qr">QR</RouterLink>
-        <RouterLink to="/shamirs-secret">SS</RouterLink>
+        <RouterLink to="/shamirs-secret-sharing">SSS</RouterLink>
         <RouterLink to="/ethereum-wallet">ETH</RouterLink>
       </nav>
     </div>

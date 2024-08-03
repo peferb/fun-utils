@@ -50,10 +50,8 @@ const emit = defineEmits(['update:modelValue'])
   text-align: center;
   color: var(--color-text);
   font-weight: 600;
-  opacity: .75;
   cursor: pointer;
   padding: 4px 0;
-  background-color: transparent;
 
   &.active {
     cursor: default;
@@ -61,7 +59,8 @@ const emit = defineEmits(['update:modelValue'])
   }
 
   &:hover:not(.active) {
-    opacity: 1;
+    background-color: var(--color-border-hover);
+    color: var(--vt-c-white);
   }
 }
 </style>
