@@ -22,7 +22,7 @@
         :rows="12"
         label="Content" />
       <ContactForm
-        v-if="selectedTabs.content === 'VCard'"
+        v-if="selectedTabs.content === 'vCard'"
         v-model="vCardSettings"
       />
       <WIFIForm
@@ -108,13 +108,13 @@ import QRVisualForm from '@/components/form/QRVisualForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
-const contentTabs = ref(['Raw', 'VCard', 'WIFI'])
+const contentTabs = ref(['Raw', 'vCard', 'WIFI'])
 const qrTabs = ref(['Visual', 'Format'])
 const seeDataTabs = ref(['Content', 'Data URL'])
 const selectedTabs = ref({ content: 'Raw', qr: 'Visual', seeData: 'Content' })
 
 const content = computed(() => selectedTabs.value.content === 'Raw' ? rawInput.value
-  : selectedTabs.value.content === 'VCard' ? standardisedVCardString.value
+  : selectedTabs.value.content === 'vCard' ? standardisedvCardString.value
     : standardisedWIFIString.value
 )
 

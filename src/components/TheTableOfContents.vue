@@ -20,7 +20,7 @@ import { RouterLink } from 'vue-router'
     </template>
     <ul class="checked">
       <li>Create WIFI QR</li>
-      <li>Create VCard (digital contact)</li>
+      <li>Create vCard (digital contact)</li>
       <li>Create custom "raw" QR</li>
       <li>Select QR colors</li>
       <li>Select QR context color</li>
