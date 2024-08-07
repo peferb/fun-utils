@@ -114,7 +114,7 @@ const seeDataTabs = ref(['Content', 'Data URL'])
 const selectedTabs = ref({ content: 'Raw', qr: 'Visual', seeData: 'Content' })
 
 const content = computed(() => selectedTabs.value.content === 'Raw' ? rawInput.value
-  : selectedTabs.value.content === 'vCard' ? standardisedvCardString.value
+  : selectedTabs.value.content === 'vCard' ? standardisedVCardString.value
     : standardisedWIFIString.value
 )
 
