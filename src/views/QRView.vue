@@ -13,33 +13,48 @@
 
     <h2>Content</h2>
     <Tabs
-      v-model="selectedTabs.content"
+      v-model="selectedContentTab"
       :tabs="contentTabs">
       <TextField
-        v-if="selectedTabs.content === 'Raw'"
+        v-if="selectedContentTab === 'Raw'"
         v-model="rawInput"
         id="raw-content-input"
         :rows="12"
         label="Content" />
       <ContactForm
-        v-if="selectedTabs.content === 'vCard'"
+        v-if="selectedContentTab === 'vCard'"
         v-model="vCardSettings"
       />
+      <EventForm
+        v-if="selectedContentTab === 'vEvent'"
+        v-model="vEventSettings"
+        @output="val => vEventOutput = val"
+      />
       <WIFIForm
-        v-if="selectedTabs.content === 'WIFI'"
+        v-if="selectedContentTab === 'WIFI'"
         v-model="wifiSettings" />
+      <div
+        v-if="selectedContentTab === 'Misc'">
+        <!-- TODO Misc QR:s -->
+        <pre>// TODO</pre>
+        <ul>
+          <li>Link & Deep link (Discord example)</li>
+          <li>Send email</li>
+          <li>Send SMS</li>
+          <li>Start call</li>
+        </ul>
+      </div>
     </Tabs>
 
-    <!-- TODO make these settings hidden toggable -->
     <h2>Settings</h2>
     <Tabs
-      v-model="selectedTabs.qr"
+      v-model="selectedQrTab"
       :tabs="qrTabs">
       <QRVisualForm
-        v-if="selectedTabs.qr === 'Visual'"
+        v-if="selectedQrTab === 'Visual'"
         v-model="qrSettings" />
       <QRFormatForm
-        v-if="selectedTabs.qr === 'Format'"
+        v-if="selectedQrTab === 'Format'"
         v-model="qrSettings" />
     </Tabs>
 
@@ -47,7 +62,7 @@
     <Tabs
       v-model="qrSettings.colorSetting"
       :tabs="['Regular', 'Inverted']"
-      only-tabs/>
+      only-tabs />
     <div
       class="box"
       :style="`background-color: ${qrSettings.background}`">
@@ -78,15 +93,15 @@
 
     <h2>Data</h2>
     <Tabs
-      v-model="selectedTabs.seeData"
+      v-model="selectedSeeDataTab"
       :tabs="seeDataTabs">
       <div
-        v-if="selectedTabs.seeData === 'Content'"
+        v-if="selectedSeeDataTab === 'Content'"
         class="data-url-output">
         {{ content }}
       </div>
       <div
-        v-if="selectedTabs.seeData === 'Data URL'"
+        v-if="selectedSeeDataTab === 'Data URL'"
         class="data-url-output">
         {{ dataUrl }}
       </div>
@@ -105,17 +120,35 @@ import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
 import WIFIForm from '@/components/form/WIFIForm.vue'
 import QRVisualForm from '@/components/form/QRVisualForm.vue'
+import EventForm from '@/components/form/EventForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
-const contentTabs = ref(['Raw', 'vCard', 'WIFI'])
-const qrTabs = ref(['Visual', 'Format'])
-const seeDataTabs = ref(['Content', 'Data URL'])
-const selectedTabs = ref({ content: 'Raw', qr: 'Visual', seeData: 'Content' })
+const vEventOutput = ref()
 
-const content = computed(() => selectedTabs.value.content === 'Raw' ? rawInput.value
-  : selectedTabs.value.content === 'vCard' ? standardisedVCardString.value
-    : standardisedWIFIString.value
+const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI'/*, 'Crypto'*/])
+const selectedContentTab = ref('Raw')
+
+const qrTabs = ref(['Visual', 'Format'])
+const selectedQrTab = ref('Visual')
+
+const seeDataTabs = ref(['Content', 'Data URL'])
+const selectedSeeDataTab = ref('Content')
+
+const content = computed(() => {
+    switch (selectedContentTab.value) {
+      case 'Raw':
+        return rawInput.value
+      case 'vCard':
+        return standardisedVCardString.value
+      case 'vEvent':
+        return vEventOutput.value || ''
+      case 'WIFI':
+        return standardisedWIFIString.value
+      default:
+        return 'Something went wrong'
+    }
+  }
 )
 
 /** @type {string} codeMonsterV2Background - https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster*/
@@ -171,6 +204,14 @@ const standardisedVCardString = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
   + `EMAIL;WORK;INTERNET:${vCardSettings.value.email}\n`
   + `URL:${vCardSettings.value.url}\n`
   + `END:VCARD`)
+
+const vEventSettings = ref({
+  start: new Date().toISOString().split('T')[0],
+  end: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+  summary: 'Celebrate peferb!',
+  description: 'Today is the day today.',
+  location: 'Sweden, Bålsta'
+})
 
 const dataUrl = ref(null)
 
