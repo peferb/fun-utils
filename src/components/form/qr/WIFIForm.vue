@@ -4,7 +4,7 @@
       v-model="model.SSID"
       label="SSID"
       type="text"
-      id="ssid-input" />
+      id="wifi-ssid-input" />
 
     <BaseSelector
       v-model="model.hiddenNetwork"
@@ -12,7 +12,7 @@
       :description-extractor="item => item.label"
       :value-extractor="item => item.value"
       label="Hidden network"
-      id="wifi-hidden"
+      id="wifi-hidden-selector"
     />
 
     <WIFIEncryptionSelector
@@ -24,7 +24,7 @@
       v-model="model.password"
       label="Password"
       type="text"
-      id="password-input" />
+      id="wifi-password-input" />
   </Columns>
 </template>
 
