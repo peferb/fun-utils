@@ -1,1 +1,0 @@
-import{d as s,o as t,c,k as e,j as a,B as n,A as r,P as o}from"./index-D0xVwhNT.js";const i={class:"page shamirs-secret-sharing"},m=s({__name:"ShamirsSecretView",setup(_){return(d,h)=>(t(),c("div",i,[e(o,null,{icon:a(()=>[e(n)]),default:a(()=>[r(" Shamir's secret sharing ")]),_:1})]))}});export{m as default};
