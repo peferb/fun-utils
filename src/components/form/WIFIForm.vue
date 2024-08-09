@@ -1,8 +1,8 @@
 <template>
   <Columns max-columns="two">
     <Input
-      v-model="model.SSSID"
-      label="SSSID"
+      v-model="model.SSID"
+      label="SSID"
       type="text"
       id="ssid-input" />
 
@@ -37,7 +37,7 @@ import BaseSelector from '@/components/form/BaseSelector.vue'
 
 const model = defineModel({
   type: {
-    SSSID: { type: String, default: '' },
+    SSID: { type: String, default: '' },
     encryptionType: { type: String, default: '' },
     password: { type: String, default: '' },
     hiddenNetwork: { type: Boolean, default: false }
@@ -46,7 +46,7 @@ const model = defineModel({
 
 const standardisedWIFIString = computed(() => `WIFI:`
   + `T:${model.value.encryptionType};`
-  + `S:${model.value.SSSID};`
+  + `S:${model.value.SSID};`
   + `P:${(!!model.value.encryptionType) ? model.value.password : ''};H:${model.value.hiddenNetwork};`)
 
 const emit = defineEmits(['output'])
