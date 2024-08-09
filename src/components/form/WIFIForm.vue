@@ -50,8 +50,6 @@ const standardisedWIFIString = computed(() => `WIFI:`
   + `P:${(!!model.value.encryptionType) ? model.value.password : ''};H:${model.value.hiddenNetwork};`)
 
 const emit = defineEmits(['output'])
-
-watch(standardisedWIFIString, val => emit('output', val))
-
 onMounted(() => emit('output', standardisedWIFIString.value))
+watch(standardisedWIFIString, val => emit('output', val))
 </script>

@@ -17,7 +17,7 @@
 <script setup>
 import TextInput from '@/components/form/Input.vue'
 import Columns from '@/components/Columns.vue'
-import { computed, defineModel, onMounted } from 'vue'
+import { computed, defineModel, onMounted, watch } from 'vue'
 
 const model = defineModel({
   type: {
@@ -49,6 +49,6 @@ const vCardData = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
   + `END:VCARD`)
 
 const emit = defineEmits(['output'])
-const emitOutput = () => emit('output', vCardData)
-onMounted(emitOutput)
+onMounted(() => emit('output', vCardData.value))
+watch(vCardData, val => emit('output', val))
 </script>
