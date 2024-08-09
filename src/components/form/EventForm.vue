@@ -1,10 +1,10 @@
 <template>
   <Columns>
     <TextInput id="event-summary" type="text" label="Title" v-model="model.summary" @input="handleChange" />
-    <TextInput id="event-description" type="text" label="Description" v-model="model.description" @input="handleChange" />
+    <TextInput id="event-description" type="text" label="Notes" v-model="model.description" @input="handleChange" />
+    <TextInput id="event-location" label="Location" type="text" v-model="model.location" @input="handleChange" />
     <Input id="event-start" type="Date" label="Start" v-model="model.start" @input="handleChange" />
     <Input id="event-end" type="Date" label="End" v-model="model.end" @input="handleChange" />
-    <TextInput id="event-location" label="Location" type="text" v-model="model.location" @input="handleChange" />
   </Columns>
 </template>
 
