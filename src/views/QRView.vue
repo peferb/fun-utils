@@ -32,7 +32,8 @@
       />
       <WIFIForm
         v-if="selectedContentTab === 'WIFI'"
-        v-model="wifiSettings" />
+        v-model="wifiSettings"
+        @output="val => wifiOutput = val"/>
       <div
         v-if="selectedContentTab === 'Misc'">
         <!-- TODO Misc QR:s -->
@@ -125,6 +126,7 @@ import EventForm from '@/components/form/EventForm.vue'
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
 const vEventOutput = ref()
+const wifiOutput = ref()
 
 const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI'/*, 'Crypto'*/])
 const selectedContentTab = ref('Raw')
@@ -144,7 +146,7 @@ const content = computed(() => {
       case 'vEvent':
         return vEventOutput.value || ''
       case 'WIFI':
-        return standardisedWIFIString.value
+        return wifiOutput.value || ''
       default:
         return 'Something went wrong'
     }
@@ -174,10 +176,6 @@ const wifiSettings = ref({
   password: 'My not so secret password',
   hiddenNetwork: false
 })
-const standardisedWIFIString = computed(() => `WIFI:`
-  + `T:${wifiSettings.value.encryptionType};`
-  + `S:${wifiSettings.value.SSSID};`
-  + `P:${(!!wifiSettings.value.encryptionType) ? wifiSettings.value.password : ''};H:${wifiSettings.value.hiddenNetwork};`)
 
 const vCardSettings = ref({
   firstName: 'peferb',
