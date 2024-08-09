@@ -9,8 +9,8 @@
 
 <script setup>
 import {defineModel} from 'vue'
-import ErrorCorrectionLevelSelector from '@/components/form/ErrorCorrectionLevelSelector.vue'
-import FileTypeSelector from '@/components/form/FileTypeSelector.vue'
+import ErrorCorrectionLevelSelector from '@/components/form/qr/ErrorCorrectionLevelSelector.vue'
+import FileTypeSelector from '@/components/form/qr/FileTypeSelector.vue'
 import NumberRange from '@/components/form/NumberRange.vue'
 import Columns from '@/components/Columns.vue'
 

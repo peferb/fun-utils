@@ -105,13 +105,13 @@ import { computed, inject, ref } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import IconQRCode1 from '@/components/icons/IconQRCode1.vue'
 import VueQrcode from 'vue-qrcode'
-import ContactForm from '@/components/form/ContactForm.vue'
-import QRFormatForm from '@/components/form/QRFormatForm.vue'
+import ContactForm from '@/components/form/qr/ContactForm.vue'
+import QRFormatForm from '@/components/form/qr/QRFormatForm.vue'
 import Tabs from '@/components/Tabs.vue'
 import TextField from '@/components/form/TextField.vue'
-import WIFIForm from '@/components/form/WIFIForm.vue'
-import QRVisualForm from '@/components/form/QRVisualForm.vue'
-import EventForm from '@/components/form/EventForm.vue'
+import WIFIForm from '@/components/form/qr/WIFIForm.vue'
+import QRVisualForm from '@/components/form/qr/QRVisualForm.vue'
+import EventForm from '@/components/form/qr/EventForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr')
@@ -119,7 +119,7 @@ const vEventOutput = ref()
 const vCardOutput = ref()
 const wifiOutput = ref()
 
-const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI'/*, 'Crypto'*/])
+const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI', 'Crypto'])
 const selectedContentTab = ref('Raw')
 
 const qrTabs = ref(['Visual', 'Format'])

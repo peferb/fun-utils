@@ -31,7 +31,7 @@
 <script setup>
 import { computed, defineModel, onMounted, watch } from 'vue'
 import Columns from '@/components/Columns.vue'
-import WIFIEncryptionSelector from '@/components/form/WIFIEncryptionSelector.vue'
+import WIFIEncryptionSelector from '@/components/form/qr/WIFIEncryptionSelector.vue'
 import Input from '@/components/form/Input.vue'
 import BaseSelector from '@/components/form/BaseSelector.vue'
 
