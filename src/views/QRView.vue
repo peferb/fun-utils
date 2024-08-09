@@ -114,7 +114,7 @@ import QRVisualForm from '@/components/form/QRVisualForm.vue'
 import EventForm from '@/components/form/EventForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
-const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
+const rawInput = ref('https://peferb.github.io/fun-utils/#/qr')
 const vEventOutput = ref()
 const vCardOutput = ref()
 const wifiOutput = ref()
