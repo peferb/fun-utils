@@ -24,6 +24,7 @@
       <ContactForm
         v-if="selectedContentTab === 'vCard'"
         v-model="vCardSettings"
+        @output="val => vCardOutput = val"
       />
       <EventForm
         v-if="selectedContentTab === 'vEvent'"
@@ -33,18 +34,7 @@
       <WIFIForm
         v-if="selectedContentTab === 'WIFI'"
         v-model="wifiSettings"
-        @output="val => wifiOutput = val"/>
-      <div
-        v-if="selectedContentTab === 'Misc'">
-        <!-- TODO Misc QR:s -->
-        <pre>// TODO</pre>
-        <ul>
-          <li>Link & Deep link (Discord example)</li>
-          <li>Send email</li>
-          <li>Send SMS</li>
-          <li>Start call</li>
-        </ul>
-      </div>
+        @output="val => wifiOutput = val" />
     </Tabs>
 
     <h2>Settings</h2>
@@ -126,6 +116,7 @@ import EventForm from '@/components/form/EventForm.vue'
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr-smart')
 const vEventOutput = ref()
+const vCardOutput = ref()
 const wifiOutput = ref()
 
 const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI'/*, 'Crypto'*/])
@@ -142,7 +133,7 @@ const content = computed(() => {
       case 'Raw':
         return rawInput.value
       case 'vCard':
-        return standardisedVCardString.value
+        return vCardOutput.value || ''
       case 'vEvent':
         return vEventOutput.value || ''
       case 'WIFI':
@@ -191,17 +182,6 @@ const vCardSettings = ref({
   postalNumber: '',
   country: 'Sweden'
 })
-const standardisedVCardString = computed(() => `BEGIN:VCARD\nVERSION:3.0\n`
-  + `N:${vCardSettings.value.lastName};${vCardSettings.value.firstName}\n`
-  + `FN:${vCardSettings.value.lastName} ${vCardSettings.value.firstName}\n`
-  + `ORG:${vCardSettings.value.organisation}\n`
-  + `TITLE:${vCardSettings.value.title}\n`
-  + `ADR:;;${vCardSettings.value.street};${vCardSettings.value.city};;${vCardSettings.value.postalNumber};${vCardSettings.value.country}\n`
-  + `TEL;WORK;VOICE:${vCardSettings.value.phoneWork}\n`
-  + `TEL;CELL:${vCardSettings.value.mobile}\n`
-  + `EMAIL;WORK;INTERNET:${vCardSettings.value.email}\n`
-  + `URL:${vCardSettings.value.url}\n`
-  + `END:VCARD`)
 
 const vEventSettings = ref({
   start: new Date().toISOString().split('T')[0],
@@ -212,7 +192,6 @@ const vEventSettings = ref({
 })
 
 const dataUrl = ref(null)
-
 </script>
 
 <style>
