@@ -27,8 +27,10 @@
         </div>
       </div>
       <div v-else>
-        <div>Part: {{ partsInputsInput.length }}</div>
-        <button @click="() => partsInputsInput.push('')" style="width: max-content">Add part</button>
+        <div style="display: flex; margin-bottom: 12px">
+          <div style="margin-right: 12px">Parts #{{ partsInputsInput.length }}</div>
+          <button @click="() => partsInputsInput.push('')" style="width: max-content">Add part</button>
+        </div>
         <div
           v-for="(_, index) in partsInputsInput"
           :ref="`combine-part-${index}`"
