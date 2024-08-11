@@ -26,6 +26,11 @@
         v-model="vCardSettings"
         @output="val => vCardOutput = val"
       />
+      <CommunicationForm
+        v-if="selectedContentTab === 'Com'"
+        v-model="communicationSettings"
+        @output="val => communicationOutput = val"
+      />
       <EventForm
         v-if="selectedContentTab === 'vEvent'"
         v-model="vEventSettings"
@@ -112,14 +117,16 @@ import TextField from '@/components/form/TextField.vue'
 import WIFIForm from '@/components/form/qr/WIFIForm.vue'
 import QRVisualForm from '@/components/form/qr/QRVisualForm.vue'
 import EventForm from '@/components/form/qr/EventForm.vue'
+import CommunicationForm from '@/components/form/qr/CommunicationForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr')
 const vEventOutput = ref()
 const vCardOutput = ref()
+const communicationOutput = ref()
 const wifiOutput = ref()
 
-const contentTabs = ref(['Raw', 'vCard', 'vEvent',/* 'Geo', 'Com', */'WIFI', 'Crypto'])
+const contentTabs = ref(['Raw', 'vCard', 'vEvent','Com', 'WIFI'])
 const selectedContentTab = ref('Raw')
 
 const qrTabs = ref(['Visual', 'Format'])
@@ -138,6 +145,8 @@ const content = computed(() => {
         return vEventOutput.value || ''
       case 'WIFI':
         return wifiOutput.value || ''
+      case 'Com':
+        return communicationOutput.value || ''
       default:
         return 'Something went wrong'
     }
@@ -181,6 +190,15 @@ const vCardSettings = ref({
   city: '',
   postalNumber: '',
   country: 'Sweden'
+})
+const communicationSettings = ref({
+  media: "Mail",
+  email: "",
+  cc: "",
+  subject: "",
+  mailBody: "",
+  phone: "",
+  smsBody: "",
 })
 
 const vEventSettings = ref({
