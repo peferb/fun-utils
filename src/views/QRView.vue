@@ -1,5 +1,5 @@
 <template>
-  <div class="page qr-automation">
+  <div class="page page-qr">
     <PageTitle>
       <template #icon>
         <IconQRCode1 />

@@ -12,6 +12,24 @@ import { RouterLink } from 'vue-router'
 
   <ContentItem>
     <template #icon>
+      <EnhancedEncryptionIcon />
+    </template>
+    <template #heading>
+      <RouterLink to="/shamirs-secret-sharing">SSS</RouterLink>
+      - Shamirs Secret Sharing
+    </template>
+    <p style="padding-bottom: 12px; font-style: italic">
+      <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
+    </p>
+    <ul class="checked">
+      <li>split secret into n parts</li>
+      <li>set parts required for restoration</li>
+      <li>restore secret</li>
+    </ul>
+  </ContentItem>
+
+  <ContentItem>
+    <template #icon>
       <QRCodeIcon1 />
     </template>
     <template #heading>
@@ -44,25 +62,6 @@ import { RouterLink } from 'vue-router'
       <li>Set context size</li>
       <li>Position QR in context</li>
       <li>FAQ</li>
-    </ul>
-  </ContentItem>
-
-  <ContentItem>
-    <template #icon>
-      <EnhancedEncryptionIcon />
-    </template>
-    <template #heading>
-      <RouterLink to="/shamirs-secret-sharing">SSS</RouterLink>
-      - Shamirs Secret Sharing
-    </template>
-    <p style="padding-bottom: 12px; font-style: italic">
-      <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
-    </p>
-    <pre>// TODO</pre>
-    <ul class="unchecked">
-      <li>split secret into n parts</li>
-      <li>set parts required for restoration</li>
-      <li>restore secret</li>
     </ul>
   </ContentItem>
 
