@@ -49,6 +49,9 @@
       <QRVisualForm
         v-if="selectedQrTab === 'Visual'"
         v-model="qrSettings" />
+      <div v-if="selectedQrTab === 'Image'">
+        <ImageForm v-model="imageSettings"/>
+      </div>
       <QRFormatForm
         v-if="selectedQrTab === 'Format'"
         v-model="qrSettings" />
@@ -63,17 +66,25 @@
       class="box"
       :style="`background-color: ${qrSettings.background}`">
       <!-- TODO make wrapping div resizable and the qr movable inside of it -->
-      <VueQrcode
-        :value="content"
-        :mask-pattern="qrSettings.maskPattern"
-        :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
-        :version="qrSettings.version"
-        :width="qrSettings.width"
-        :color="qrSettings.colorSetting === 'Regular' ? qrSettings.color : {light: qrSettings.color.dark, dark: qrSettings.color.light}"
-        :margin="0"
-        :type="qrSettings.filetype"
-        @change="val => dataUrl = val"
-      />
+      <div style="position: relative">
+        <VueQrcode
+          :value="content"
+          :mask-pattern="qrSettings.maskPattern"
+          :errorCorrectionLevel="qrSettings.errorCorrectionLevel"
+          :version="qrSettings.version"
+          :width="qrSettings.width"
+          :color="qrSettings.colorSetting === 'Regular' ? qrSettings.color : {light: qrSettings.color.dark, dark: qrSettings.color.light}"
+          :margin="0"
+          :type="qrSettings.filetype"
+          @change="val => dataUrl = val"
+        />
+        <img
+          v-if="imageSettings.src"
+          :src="imageSettings.src"
+          :style="imageStyle"
+          id="qr-image"
+          alt="Image of your choice" />
+      </div>
     </div>
     <!-- TODO add "wHy IsNt iT wOrKinG?!?!"-FAQ box -->
 
@@ -118,6 +129,7 @@ import WIFIForm from '@/components/form/qr/WIFIForm.vue'
 import QRVisualForm from '@/components/form/qr/QRVisualForm.vue'
 import EventForm from '@/components/form/qr/EventForm.vue'
 import CommunicationForm from '@/components/form/qr/CommunicationForm.vue'
+import ImageForm from '@/components/form/qr/ImageForm.vue'
 
 const errorCorrectionLevel = inject('errorCorrectionLevel')
 const rawInput = ref('https://peferb.github.io/fun-utils/#/qr')
@@ -129,7 +141,7 @@ const wifiOutput = ref()
 const contentTabs = ref(['Raw', 'vCard', 'vEvent','Com', 'WIFI'])
 const selectedContentTab = ref('Raw')
 
-const qrTabs = ref(['Visual', 'Format'])
+const qrTabs = ref(['Visual', 'Format', 'Image'])
 const selectedQrTab = ref('Visual')
 
 const seeDataTabs = ref(['Content', 'Data URL'])
@@ -208,6 +220,22 @@ const vEventSettings = ref({
   description: 'Today is the day today.',
   location: 'Sweden, Bålsta'
 })
+
+const imageSettings = ref({
+  src: '',
+  width: 50,
+  positionTop: 100,
+  positionLeft: 100,
+  borderSize: 0,
+  borderColor: '#FF0000',
+})
+
+const imageStyle = computed(() => `width: ${imageSettings.value.width}px; `
+  + `position: absolute; `
+  + `top: ${imageSettings.value.positionTop}px; `
+  + `left: ${imageSettings.value.positionLeft}px; `
+  + `border: ${imageSettings.value.borderSize}px ${imageSettings.value.borderColor} solid; `
+)
 
 const dataUrl = ref(null)
 </script>

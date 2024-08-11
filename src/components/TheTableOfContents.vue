@@ -24,23 +24,26 @@ import { RouterLink } from 'vue-router'
       <li>Create calendar event</li>
       <li>Create mail</li>
       <li>Create SMS</li>
-      <li>Create auto phone call</li>
+      <li>Create phone call</li>
       <li>Create custom "raw" QR</li>
-      <li>Select QR colors</li>
-      <li>Select QR context color</li>
-      <li>Select error correction level</li>
+      <li>Add image/logo</li>
+      <li>Position image/logo</li>
+      <li>Image/logo border</li>
+      <li>Select colors</li>
+      <li>Select context color</li>
       <li>Select image filetype</li>
+      <li>Select error correction level</li>
       <li>Select mask</li>
       <li>See qr content</li>
       <li>See qr as image data</li>
       <li>Resize</li>
     </ul>
+    <br>
+    <pre>// TODO</pre>
     <ul class="unchecked">
-      <li>Select positioning colors</li>
-      <li>Spacing</li>
-      <li>Timing X/Y color</li>
-      <li>Binary Content</li>
-      <li>Add image/logo</li>
+      <li>Set context size</li>
+      <li>Position QR in context</li>
+      <li>FAQ</li>
     </ul>
   </ContentItem>
 
