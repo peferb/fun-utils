@@ -10,15 +10,15 @@
       v-model="tabs.selected"
       :tabs="tabs.available">
       <div v-if="tabs.selected === 'Split secret'">
+        <Input id="secret-input" label="Secret" v-model="splitSettings.secret" />
         <Columns max-columns="two">
           <NumberRange id="parts-input" label="Parts" v-model="splitSettings.parts" :min="2" :max="100" />
           <NumberRange id="required-parts-input" label="Required parts" v-model="splitSettings.requiredParts" :min="2"
                        :max="splitSettings.parts" />
         </Columns>
 
-        <Input id="secret-input" label="Secret" v-model="splitSettings.secret" />
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <button @click="copyToCombine" style="width: max-content">Copy parts to 'Combine parts'</button>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 8px">
+          <button @click="copyToCombine" style="width: max-content">Copy parts to 'Combine parts' &nbsp; &rarr;</button>
         </div>
 
         <h2>Secret parts</h2>
