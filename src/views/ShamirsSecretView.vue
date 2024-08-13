@@ -14,11 +14,13 @@
           <NumberRange id="parts-input" label="Parts" v-model="splitSettings.parts" :min="2" :max="100" />
           <NumberRange id="required-parts-input" label="Required parts" v-model="splitSettings.requiredParts" :min="2"
                        :max="splitSettings.parts" />
-          <Input id="secret-input" label="Secret" v-model="splitSettings.secret" />
-          <div style="justify-content: center; align-items: center">
-            <button @click="copyToCombine" style="width: max-content">Copy parts to 'Combine parts'</button>
-          </div>
         </Columns>
+
+        <Input id="secret-input" label="Secret" v-model="splitSettings.secret" />
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <button @click="copyToCombine" style="width: max-content">Copy parts to 'Combine parts'</button>
+        </div>
+
         <h2>Secret parts</h2>
         <div
           v-for="part in splitParts"
@@ -48,6 +50,7 @@
             &#10006;
           </div>
         </div>
+
         <h2>Restored secret</h2>
         <div class="list-row">{{ restoredSecret }}</div>
       </div>
