@@ -228,12 +228,14 @@ const imageSettings = ref({
   positionLeft: 100,
   borderSize: 0,
   borderColor: '#FF0000',
+  backgroundColor: 'transparent',
 })
 
 const imageStyle = computed(() => `width: ${imageSettings.value.width}px; `
   + `position: absolute; `
   + `top: ${imageSettings.value.positionTop}px; `
   + `left: ${imageSettings.value.positionLeft}px; `
+  + `background-color: ${imageSettings.value.backgroundColor};`
   + `border: ${imageSettings.value.borderSize}px ${imageSettings.value.borderColor} solid; `
 )
 

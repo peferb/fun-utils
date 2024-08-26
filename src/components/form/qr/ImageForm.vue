@@ -6,6 +6,7 @@
     <NumberRange id="image-left-input" label="Position left" :min="0" :max="1000" v-model="model.positionLeft" />
     <NumberRange id="image-border-width-input" label="Border thickness" :min="0" :max="100" v-model="model.borderSize" />
     <ColorSelector id="image-border-color-input" label="Border color" :min="0" :max="100" v-model="model.borderColor" />
+    <ColorSelector id="image-background-color-input" label="Background color" :min="0" :max="100" v-model="model.backgroundColor" />
     <div class="half-box">
       <label>Remove image</label>
       <input type="button" value="Clear" style="width: max-content;" @click="() => model.src = ''"/>
@@ -28,6 +29,7 @@ const model = defineModel({
     positionLeft: String,
     borderSize: Number,
     borderColor: String,
+    backgroundColor: String,
   }
 })
 </script>
