@@ -4,6 +4,7 @@
 - QR-code generator
 - Shamirs Secret Sharing
 - Crypto wallet generator (not yet) 
+- meme creator?
 
 Built using Vue.
 

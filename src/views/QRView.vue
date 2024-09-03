@@ -10,7 +10,6 @@
       Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
       <a href="https://www.npmjs.com/package/vue-qrcode">NPM</a>.
     </p>
-
     <h2>Content</h2>
     <Tabs
       v-model="selectedContentTab"

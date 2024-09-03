@@ -6,6 +6,10 @@
       </template>
       Shamir's secret sharing
     </PageTitle>
+    <p>
+      Using secrets.js: <a href="https://github.com/scrtlabs/secret.js">Github</a>,
+      <a href="https://www.npmjs.com/package/secretjs">NPM</a>.
+    </p>
     <Tabs
       v-model="tabs.selected"
       :tabs="tabs.available">
