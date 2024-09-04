@@ -12,7 +12,8 @@
     </p>
     <Tabs
       v-model="tabs.selected"
-      :tabs="tabs.available">
+      :tabs="tabs.available"
+      style="margin-top: 24px">
       <div v-if="tabs.selected === 'Split secret'">
         <Input id="secret-input" label="Secret" v-model="splitSettings.secret" />
         <Columns max-columns="two">
