@@ -115,7 +115,7 @@ function removePartByIndex(index) {
 }
 </script>
 
-<style>
+<style scoped>
 div.list-row {
   font-family: monospace;
   padding: 8px 12px;

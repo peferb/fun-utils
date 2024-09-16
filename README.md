@@ -3,7 +3,7 @@
 ### This repo contains 
 - QR-code generator
 - Shamirs Secret Sharing
-- Crypto wallet generator (not yet) 
+- Crypto wallet generator
 - meme creator?
 
 Built using Vue.

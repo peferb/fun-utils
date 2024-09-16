@@ -10,6 +10,7 @@
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
+    "ethers": "^6.13.2",
     "pinia": "^2.1.7",
     "secrets.js": "^0.1.8",
     "vue": "^3.4.29",

@@ -73,11 +73,15 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/crypto">Crypto</RouterLink>
       - generate Ethereum wallets
     </template>
+    <ul class="checked">
+      <li>generate ethereum wallets</li>
+      <li>match in end</li>
+      <li>output includes private key, address and mnemonic</li>
+    </ul>
     <pre>// TODO</pre>
     <ul class="unchecked">
-      <li>generate n wallets</li>
-      <li>output includes private key, address and mnemonic</li>
-      <li>match in end</li>
+      <li>validate input</li>
+      <li>error message for browsers not supporting workers</li>
       <li>match in start</li>
       <li>chars included in address</li>
       <li>case-sensitive or case-insensitive</li>
