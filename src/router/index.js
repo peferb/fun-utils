@@ -20,9 +20,9 @@ const router = createRouter({
       component: () => import('../views/ShamirsSecretView.vue')
     },
     {
-      path: '/ethereum-wallet',
-      name: 'ethereum-wallet',
-      component: () => import('../views/EthereumWalletView.vue')
+      path: '/crypto',
+      name: 'crypto',
+      component: () => import('../views/CryptoView.vue')
     }
   ]
 })

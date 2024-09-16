@@ -1,15 +1,15 @@
 <script setup lang="ts">
-  import IconQRCode2 from '@/components/icons/IconQRCode2.vue'
   import PageTitle from '@/components/PageTitle.vue'
+  import IconWallet from '@/components/icons/IconWallet.vue'
 </script>
 
 <template>
-  <div class="page ethereum-wallet">
+  <div class="page crypto">
     <PageTitle>
       <template #icon>
-        <IconQRCode2/>
+        <IconWallet/>
       </template>
-      Ethereum wallet
+      Crypto
       <!-- TODO Add Trijo invite link -->
     </PageTitle>
   </div>

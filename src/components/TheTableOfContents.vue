@@ -70,7 +70,7 @@ import { RouterLink } from 'vue-router'
       <WalletIcon />
     </template>
     <template #heading>
-      <RouterLink to="/ethereum-wallet">ETH</RouterLink>
+      <RouterLink to="/crypto">Crypto</RouterLink>
       - generate Ethereum wallets
     </template>
     <pre>// TODO</pre>
