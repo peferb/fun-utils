@@ -17,7 +17,13 @@ onmessage = function(event) {
         fingerprint: wallet.fingerprint
       })
     }
-    postMessage({ type: 'progress', tries, wallets, total: walletsToCreate })
+    postMessage({
+        type: 'progress',
+        tries: tries.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '),
+        wallets,
+        total: walletsToCreate
+      }
+    )
   }
   postMessage({ type: 'done' })
 }

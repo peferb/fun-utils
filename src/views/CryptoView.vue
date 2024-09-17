@@ -21,9 +21,13 @@
         type="text"
         id="endsWith" />
     </Columns>
-    <button @click="handleButtonClick">{{ generateButtonText }}</button>
+    <button
+      @click="handleButtonClick"
+      :disabled="disableButton">
+      {{ generateButtonText }}
+    </button>
     <div style="margin: 16px 0">
-      <p>Progress: {{ progress.tries }} tries</p>
+      <p>Tries: {{ progress.tries }}</p>
       <p>Found: {{ progress.wallets.length }} of {{ progress.total }}</p>
     </div>
     <div
@@ -49,12 +53,14 @@ const walletsToCreate = ref(1)
 const progress = ref({ tries: 0, wallets: [], total: walletsToCreate.value })
 const endsWith = ref('42')
 const generateButtonText = computed(() => workerIsRunning.value ? 'Stop generating' : 'Generate wallets')
+const disableButton = ref(false)
 
 // Remove all characters that are not hexadecimal which is does not exist in Ethereum addresses
 const cleanInput = () => endsWith.value = endsWith.value.replace(/[^0-9a-fA-F]/g, '')
 
 const handleButtonClick = () => {
   if (workerIsRunning.value) {
+    buttonCooldown()
     stopGenerating()
   } else {
     startGenerating()
@@ -77,6 +83,11 @@ const startGenerating = () => {
 const stopGenerating = () => {
   worker.value.terminate()
   worker.value = null
+}
+
+const buttonCooldown = () => {
+  disableButton.value = true
+  setTimeout(() => disableButton.value = false, 3000)
 }
 </script>
 
