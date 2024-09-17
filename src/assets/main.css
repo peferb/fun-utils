@@ -7,6 +7,15 @@
   font-weight: normal;
 }
 
+p {
+  margin-top: 12px;
+}
+
+em {
+  font-style: normal;
+  font-weight: 900;
+}
+
 a,
 .green {
   text-decoration: none;

@@ -18,9 +18,6 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/shamirs-secret-sharing">SSS</RouterLink>
       - Shamirs Secret Sharing
     </template>
-    <p style="padding-bottom: 12px; font-style: italic">
-      <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir's secret sharing on Wikipedia</a>
-    </p>
     <ul class="checked">
       <li>split secret into n parts</li>
       <li>set parts required for restoration</li>
@@ -77,13 +74,12 @@ import { RouterLink } from 'vue-router'
       <li>generate ethereum wallets</li>
       <li>match in end</li>
       <li>output includes private key, address and mnemonic</li>
+      <li>validate input</li>
+      <li>error message for browsers not supporting workers</li>
     </ul>
     <pre>// TODO</pre>
     <ul class="unchecked">
-      <li>validate input</li>
-      <li>error message for browsers not supporting workers</li>
-      <li>match in start</li>
-      <li>chars included in address</li>
+      <li>chars included anywhere in address</li>
       <li>case-sensitive or case-insensitive</li>
     </ul>
   </ContentItem>

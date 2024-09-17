@@ -7,8 +7,24 @@
       Shamir's secret sharing
     </PageTitle>
     <p>
-      Using secrets.js: <a href="https://github.com/scrtlabs/secret.js">Github</a>,
-      <a href="https://www.npmjs.com/package/secretjs">NPM</a>.
+      Using secrets.js &rarr; <a href="https://github.com/scrtlabs/secret.js">Github</a>,
+      <a href="https://www.npmjs.com/package/secretjs">NPM</a>
+    </p>
+    <p>
+      See this code &rarr;
+      <a href="https://github.com/peferb/fun-utils/blob/main/src/views/ShamirsSecretView.vue">ShamirsSecretView.vue</a>
+    </p>
+    <h2>About</h2>
+    <p>
+      Use "Split secret" to split a secret into how many parts you want, and select "Required parts" to how many parts
+      you want to be used to restore the secret.
+    </p>
+    <p>
+      Flip to "Combine parts" to restore the secret using the parts you've created. Or just use the button to auto copy
+      all the parts to the "Combine parts" tab.
+    </p>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Wikipedia about Shamir's secret sharing</a>
     </p>
     <Tabs
       v-model="tabs.selected"

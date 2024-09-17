@@ -7,8 +7,26 @@
       Create QR code
     </PageTitle>
     <p>
-      Using rx-ts vue-qrcode: <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
-      <a href="https://www.npmjs.com/package/vue-qrcode">NPM</a>.
+      Using rx-ts vue-qrcode &rarr; <a href="https://github.com/rx-ts/vue/tree/master/packages/vue-qrcode">Github</a>,
+      <a href="https://www.npmjs.com/package/vue-qrcode">NPM</a>
+    </p>
+    <p>
+      See this code &rarr;
+      <a href="https://github.com/peferb/fun-utils/blob/main/src/views/QRView.vue">QRView.vue</a>
+    </p>
+    <h2>About</h2>
+    <p>
+      If you detect that <em>the QR code is not changing</em> during your fiddling, then the issue is most likely
+      because the content is longer than what the settings allows. If that happens, <em>try turning the "Format/Version"
+      setting up a notch</em>.
+    </p>
+    <p>
+      Read more about "smart" QR codes at webfx blog &rarr;
+      <a href="https://www.webfx.com/blog/web-design/qr-codes-uri-schemes/">qr-codes-uri-schemes</a>
+    </p>
+    <p>
+      Read about using AI to make beautiful QR codes at huggingface &rarr;
+      <a href="https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster">control_v1p_sd15_qrcode_monster</a>!
     </p>
     <h2>Content</h2>
     <Tabs
@@ -85,17 +103,6 @@
           alt="Image of your choice" />
       </div>
     </div>
-    <!-- TODO add "wHy IsNt iT wOrKinG?!?!"-FAQ box -->
-
-    <!-- TODO Link to https://www.webfx.com/blog/web-design/qr-codes-uri-schemes/ -->
-    <!-- TODO and tell them to look at content and use "RAW" -->
-
-    <!-- TODO explain data size -->
-    <!-- TODO explain image size and color contrast effect on camera -->
-    <!-- TODO explain spacing/context effect on camera -->
-    <!-- TODO explain monster v2 color (+invert) + link -->
-    <!-- TODO explain qr scanner vs regular camera -->
-    <!-- TODO explain correction level and how it relates to image/logo -->
 
     <h2>Data</h2>
     <Tabs

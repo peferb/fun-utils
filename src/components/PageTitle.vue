@@ -17,7 +17,6 @@
 }
 .page-title {
   font-size: xx-large;
-  padding-bottom: 12px;
 }
 .page-title-icon {
   margin-right: 8px;

@@ -6,14 +6,33 @@
       </template>
       Crypto
     </PageTitle>
+    <p>
+      Using ethers &rarr; <a href="https://ethers.org/">Github</a>,
+      <a href="https://www.npmjs.com/package/ethers">NPM</a>
+    </p>
+    <p>
+      See this code &rarr;
+      <a href="https://github.com/peferb/fun-utils/blob/main/src/views/CryptoView.vue">CryptoView.vue</a>,
+      <a href="https://github.com/peferb/fun-utils/blob/main/public/wallet-worker.js">wallet-worker.js</a>
+    </p>
+    <h2>About</h2>
+    <p>
+      <em>"Ends with"</em>, if set, will only generate wallets that end with the specified characters. For
+      each more char added, the time to find a wallet that match <em>increases exponentially</em>.
+    </p>
+    <p>
+      Only hexadecimal characters are allowed in Ethereum addresses. That's why the input field will
+      <em>only accept a-f and 0-9 characters</em>.
+    </p>
     <h2>Generate Ethereum wallets</h2>
-    <Columns max-columns="two">
+    <Columns max-columns="two" style="margin-top: 8px;">
       <NumberRange
         v-model="walletsToCreate"
         :min="1"
         :max="100"
         label="Wallets to create"
-        id="walletsToCreate" />
+        id="walletsToCreate"
+        style="" />
       <Input
         v-model="endsWith"
         @input="cleanInput"
@@ -23,13 +42,16 @@
     </Columns>
     <button
       @click="handleButtonClick"
-      :disabled="disableButton">
+      :disabled="disableButton || !browserSupportsWorkers">
       {{ generateButtonText }}
     </button>
-    <div style="margin: 16px 0">
-      <p>Tries: {{ progress.tries }}</p>
-      <p>Found: {{ progress.wallets.length }} of {{ progress.total }}</p>
-    </div>
+    <p
+      v-if="!browserSupportsWorkers"
+      style="color: red">
+      Your browser does not support workers. Generation of wallets will not work.
+    </p>
+    <p>Tries: {{ progress.tries }}</p>
+    <p style="margin-top: 0">Found: {{ progress.wallets.length }} of {{ progress.total }}</p>
     <div
       v-for="wallet in progress.wallets"
       :key="wallet.address"
@@ -47,6 +69,7 @@ import { ref, computed } from 'vue'
 import Columns from '@/components/Columns.vue'
 import Input from '@/components/form/Input.vue'
 
+const browserSupportsWorkers = computed(() => !!window.Worker)
 const worker = ref(null)
 const workerIsRunning = computed(() => !!worker.value)
 const walletsToCreate = ref(1)
@@ -66,7 +89,6 @@ const handleButtonClick = () => {
     startGenerating()
   }
 }
-
 const startGenerating = () => {
   const workerScript = new Worker(new URL('/wallet-worker.js', import.meta.url), { type: 'module' })
   workerScript.onmessage = (event) => {
@@ -92,6 +114,15 @@ const buttonCooldown = () => {
 </script>
 
 <style scoped>
+.half-box {
+  /* hacky fix to align half-box lines when not wrapped inside a box as it usually is */
+  padding-left: 0;
+
+  &:after {
+    left: 0;
+  }
+}
+
 pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
