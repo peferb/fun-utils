@@ -6,8 +6,8 @@
       </template>
       Crypto
     </PageTitle>
-    <h2>Generate wallets</h2>
-    <Columns max-columns="2">
+    <h2>Generate Ethereum wallets</h2>
+    <Columns max-columns="two">
       <NumberRange
         v-model="walletsToCreate"
         :min="1"
