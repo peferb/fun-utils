@@ -50,6 +50,7 @@ const endsWith = ref('42')
 
 const generateButtonText = computed(() => generating.value ? 'Stop generating' : 'Generate wallets')
 
+// TODO do not need to keep track of isGenerating bool, just check if worker exists
 const handleButtonClick = () => {
   if (generating.value) {
     stopGenerating()
@@ -60,7 +61,7 @@ const handleButtonClick = () => {
 
 const startGenerating = () => {
   generating.value = true
-  const ethWorker = new Worker(new URL('wallet-worker.js', import.meta.url), { type: 'module' })
+  const ethWorker = new Worker(new URL('/wallet-worker.js', import.meta.url), { type: 'module' })
   ethWorker.onmessage = (event) => {
     if (event.data === 'done') {
       stopGenerating()
