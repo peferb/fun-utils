@@ -42,17 +42,16 @@ import { ref, computed } from 'vue'
 import Columns from '@/components/Columns.vue'
 import Input from '@/components/form/Input.vue'
 
-const generating = ref(false)
 const worker = ref(null)
+const workerIsRunning = computed(() => !!worker.value)
 const walletsToCreate = ref(1)
 const progress = ref({ tries: 0, wallets: [], total: walletsToCreate.value })
 const endsWith = ref('42')
 
-const generateButtonText = computed(() => generating.value ? 'Stop generating' : 'Generate wallets')
+const generateButtonText = computed(() => workerIsRunning.value ? 'Stop generating' : 'Generate wallets')
 
-// TODO do not need to keep track of isGenerating bool, just check if worker exists
 const handleButtonClick = () => {
-  if (generating.value) {
+  if (workerIsRunning.value) {
     stopGenerating()
   } else {
     startGenerating()
@@ -60,21 +59,19 @@ const handleButtonClick = () => {
 }
 
 const startGenerating = () => {
-  generating.value = true
-  const ethWorker = new Worker(new URL('/wallet-worker.js', import.meta.url), { type: 'module' })
-  ethWorker.onmessage = (event) => {
-    if (event.data === 'done') {
-      stopGenerating()
-    } else {
+  const workerScript = new Worker(new URL('/wallet-worker.js', import.meta.url), { type: 'module' })
+  workerScript.onmessage = (event) => {
+    if (event.data.type === 'progress') {
       progress.value = event.data
+    } else if (event.data.type === 'done') {
+      stopGenerating()
     }
   }
-  ethWorker.postMessage({ walletsToCreate: walletsToCreate.value, endsWith: endsWith.value })
-  worker.value = ethWorker
+  workerScript.postMessage({ walletsToCreate: walletsToCreate.value, endsWith: endsWith.value })
+  worker.value = workerScript
 }
 
 const stopGenerating = () => {
-  generating.value = false
   worker.value.terminate()
   worker.value = null
 }
@@ -82,11 +79,11 @@ const stopGenerating = () => {
 
 <style scoped>
 pre {
-  white-space: pre-wrap;       /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 div.list-row {
