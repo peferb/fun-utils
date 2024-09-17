@@ -7,7 +7,7 @@
       Crypto
     </PageTitle>
     <h2>Generate wallets</h2>
-    <Columns>
+    <Columns max-columns="2">
       <NumberRange
         v-model="walletsToCreate"
         :min="1"
