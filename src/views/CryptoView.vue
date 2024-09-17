@@ -16,6 +16,7 @@
         id="walletsToCreate" />
       <Input
         v-model="endsWith"
+        @input="cleanInput"
         label="Ends with"
         type="text"
         id="endsWith" />
@@ -47,8 +48,10 @@ const workerIsRunning = computed(() => !!worker.value)
 const walletsToCreate = ref(1)
 const progress = ref({ tries: 0, wallets: [], total: walletsToCreate.value })
 const endsWith = ref('42')
-
 const generateButtonText = computed(() => workerIsRunning.value ? 'Stop generating' : 'Generate wallets')
+
+// Remove all characters that are not hexadecimal which is does not exist in Ethereum addresses
+const cleanInput = () => endsWith.value = endsWith.value.replace(/[^0-9a-fA-F]/g, '')
 
 const handleButtonClick = () => {
   if (workerIsRunning.value) {
