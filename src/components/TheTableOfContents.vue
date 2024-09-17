@@ -77,6 +77,7 @@ import { RouterLink } from 'vue-router'
       <li>validate input</li>
       <li>error message for browsers not supporting workers</li>
     </ul>
+    <br>
     <pre>// TODO</pre>
     <ul class="unchecked">
       <li>chars included anywhere in address</li>
