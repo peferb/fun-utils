@@ -13,7 +13,7 @@
     <p>
       See this code &rarr;
       <a href="https://github.com/peferb/fun-utils/blob/main/src/views/CryptoView.vue">CryptoView.vue</a>,
-      <a href="https://github.com/peferb/fun-utils/blob/main/public/wallet-worker.js">eth-wallet-worker.js</a>
+      <a href="https://github.com/peferb/fun-utils/blob/main/public/eth-wallet-worker.js">eth-wallet-worker.js</a>
     </p>
     <h2>About</h2>
     <p>
