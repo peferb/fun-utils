@@ -7,12 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "create-btc-wallet": "node ./scripts/createBTCWallet.js"
   },
   "dependencies": {
+    "bitcoinjs-lib": "^6.1.7",
+    "ecpair": "^3.0.0",
     "ethers": "^6.14.4",
     "pinia": "^3.0.3",
     "secrets.js": "^0.1.8",
+    "tiny-secp256k1": "^2.2.3",
     "vue": "^3.5.16",
     "vue-qrcode": "^2.2.2",
     "vue-router": "^4.5.1"
