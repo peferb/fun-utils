@@ -13,7 +13,7 @@
     <p>
       See this code &rarr;
       <a href="https://github.com/peferb/fun-utils/blob/main/src/views/CryptoView.vue">CryptoView.vue</a>,
-      <a href="https://github.com/peferb/fun-utils/blob/main/public/wallet-worker.js">wallet-worker.js</a>
+      <a href="https://github.com/peferb/fun-utils/blob/main/public/wallet-worker.js">eth-wallet-worker.js</a>
     </p>
     <h2>About</h2>
     <p>
@@ -90,7 +90,7 @@ const handleButtonClick = () => {
   }
 }
 const startGenerating = () => {
-  const workerScript = new Worker(new URL('/wallet-worker.js', import.meta.url), { type: 'module' })
+  const workerScript = new Worker(new URL('/eth-wallet-worker.js', import.meta.url), { type: 'module' })
   workerScript.onmessage = (event) => {
     if (event.data.type === 'progress') {
       progress.value = event.data
